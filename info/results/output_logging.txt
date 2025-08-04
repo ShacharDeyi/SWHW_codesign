@@ -36,39 +36,41 @@ psutil==7.0.0
 pyperf==2.6.3
 
 [1/1] logging...
-# /root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/bin/python -u /usr/local/lib/python3.10/dist-packages/pyperformance/data-files/benchmarks/bm_logging/run_benchmark.py --output /tmp/tmp7c7f2qgl --inherit-environ PYPERFORMANCE_RUNID
+# /root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/bin/python -u /usr/local/lib/python3.10/dist-packages/pyperformance/data-files/benchmarks/bm_logging/run_benchmark.py --output /tmp/tmpc5qrfzoy --inherit-environ PYPERFORMANCE_RUNID
 .....................
-logging_format: Mean +- std dev: 35.9 us +- 0.4 us
+logging_format: Mean +- std dev: 35.7 us +- 0.8 us
 .....................
-logging_silent: Mean +- std dev: 730 ns +- 16 ns
+logging_silent: Mean +- std dev: 731 ns +- 16 ns
 .....................
-logging_simple: Mean +- std dev: 32.1 us +- 0.4 us
+logging_simple: Mean +- std dev: 31.9 us +- 0.3 us
 
 Performance version: 1.11.0
 Python version: 3.10.12 (64-bit)
 Report on Linux-5.15.0-1081-kvm-x86_64-with-glibc2.35
 Number of logical CPUs: 1
-Start date: 2025-08-04 16:30:15.519321
-End date: 2025-08-04 16:31:06.253559
+Start date: 2025-08-04 17:06:44.864141
+End date: 2025-08-04 17:07:35.339555
 
 ### logging_format ###
-Mean +- std dev: 35.9 us +- 0.4 us
+Mean +- std dev: 35.7 us +- 0.8 us
 
 ### logging_silent ###
-Mean +- std dev: 730 ns +- 16 ns
+Mean +- std dev: 731 ns +- 16 ns
 
 ### logging_simple ###
-Mean +- std dev: 32.1 us +- 0.4 us
+Mean +- std dev: 31.9 us +- 0.3 us
 
 
  Performance counter stats for 'python3-dbg -m pyperformance run --bench logging':
 
-           9744131      cache-misses              #    0.815 % of all cache refs    
-        1196240044      cache-references                                            
+           9739035      cache-misses              #    0.835 % of all cache refs    
+        1166820289      cache-references                                            
+      145778870551      cycles                                                      
+      258114601551      instructions              #    1.77  insn per cycle         
 
-      57.173241416 seconds time elapsed
+      56.701354708 seconds time elapsed
 
-      55.394042000 seconds user
-       1.630472000 seconds sys
+      55.176662000 seconds user
+       1.381928000 seconds sys
 
 
