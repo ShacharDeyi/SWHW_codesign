@@ -1,0 +1,74 @@
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (logging)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081
+# /root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/bin/python -m pip install pyperf==2.6.3
+/root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+  from distutils.cmd import Command as DistutilsCommand
+/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+  from distutils.sysconfig import get_config_vars, is_virtual_environment
+Requirement already satisfied: pyperf==2.6.3 in ./venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/lib/python3.10/site-packages (2.6.3)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/lib/python3.10/site-packages (from pyperf==2.6.3) (7.0.0)
+Installing requirements into the virtual environment /root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081
+# /root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/bin/python -m pip install psutil
+/root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+  from distutils.cmd import Command as DistutilsCommand
+/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+  from distutils.sysconfig import get_config_vars, is_virtual_environment
+Requirement already satisfied: psutil in ./venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/lib/python3.10/site-packages (7.0.0)
+# /root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/bin/python -m pip freeze
+/root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+  from distutils.cmd import Command as DistutilsCommand
+/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+  from distutils.sysconfig import get_config_vars, is_virtual_environment
+psutil==7.0.0
+pyperf==2.6.3
+# /root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/bin/python -m pip freeze
+/root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+  from distutils.cmd import Command as DistutilsCommand
+/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+  from distutils.sysconfig import get_config_vars, is_virtual_environment
+psutil==7.0.0
+pyperf==2.6.3
+
+[1/1] logging...
+# /root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/bin/python -u /usr/local/lib/python3.10/dist-packages/pyperformance/data-files/benchmarks/bm_logging/run_benchmark.py --output /tmp/tmp7c7f2qgl --inherit-environ PYPERFORMANCE_RUNID
+.....................
+logging_format: Mean +- std dev: 35.9 us +- 0.4 us
+.....................
+logging_silent: Mean +- std dev: 730 ns +- 16 ns
+.....................
+logging_simple: Mean +- std dev: 32.1 us +- 0.4 us
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1081-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-04 16:30:15.519321
+End date: 2025-08-04 16:31:06.253559
+
+### logging_format ###
+Mean +- std dev: 35.9 us +- 0.4 us
+
+### logging_silent ###
+Mean +- std dev: 730 ns +- 16 ns
+
+### logging_simple ###
+Mean +- std dev: 32.1 us +- 0.4 us
+
+
+ Performance counter stats for 'python3-dbg -m pyperformance run --bench logging':
+
+           9744131      cache-misses              #    0.815 % of all cache refs    
+        1196240044      cache-references                                            
+
+      57.173241416 seconds time elapsed
+
+      55.394042000 seconds user
+       1.630472000 seconds sys
+
+
