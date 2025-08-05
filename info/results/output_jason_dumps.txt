@@ -1,0 +1,20 @@
+WARNING:root:no benchmark named 'jason_dumps'
+Python benchmark suite 1.11.0
+
+
+
+ERROR: No benchmark was run
+
+ Performance counter stats for 'python3-dbg -m pyperformance run --bench jason_dumps':
+
+            852422      cache-misses              #    2.074 % of all cache refs    
+          41093679      cache-references                                            
+        3212446809      cycles                                                      
+        4846748018      instructions              #    1.51  insn per cycle         
+
+       1.288577144 seconds time elapsed
+
+       1.199744000 seconds user
+       0.081745000 seconds sys
+
+

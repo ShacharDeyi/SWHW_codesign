@@ -36,31 +36,31 @@ psutil==7.0.0
 pyperf==2.6.3
 
 [1/1] unpack_sequence...
-# /root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/bin/python -u /usr/local/lib/python3.10/dist-packages/pyperformance/data-files/benchmarks/bm_unpack_sequence/run_benchmark.py --output /tmp/tmphz7vvc1i --inherit-environ PYPERFORMANCE_RUNID
+# /root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/bin/python -u /usr/local/lib/python3.10/dist-packages/pyperformance/data-files/benchmarks/bm_unpack_sequence/run_benchmark.py --output /tmp/tmpog8g0qbo --inherit-environ PYPERFORMANCE_RUNID
 .....................
-unpack_sequence: Mean +- std dev: 164 ns +- 3 ns
+unpack_sequence: Mean +- std dev: 164 ns +- 2 ns
 
 Performance version: 1.11.0
 Python version: 3.10.12 (64-bit)
-Report on Linux-5.15.0-1081-kvm-x86_64-with-glibc2.35
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
 Number of logical CPUs: 1
-Start date: 2025-08-05 06:38:59.873546
-End date: 2025-08-05 06:39:14.819090
+Start date: 2025-08-05 11:27:05.280065
+End date: 2025-08-05 11:27:20.253436
 
 ### unpack_sequence ###
-Mean +- std dev: 164 ns +- 3 ns
+Mean +- std dev: 164 ns +- 2 ns
 
 
  Performance counter stats for 'python3-dbg -m pyperformance run --bench unpack_sequence':
 
-           4407339      cache-misses              #    1.356 % of all cache refs    
-         325119371      cache-references                                            
-       53598507981      cycles                                                      
-      134008480936      instructions              #    2.50  insn per cycle         
+           4547013      cache-misses              #    1.374 % of all cache refs    
+         331002374      cache-references                                            
+       53771827621      cycles                                                      
+      133989792475      instructions              #    2.49  insn per cycle         
 
-      20.893223828 seconds time elapsed
+      20.961316234 seconds time elapsed
 
-      20.317994000 seconds user
-       0.488294000 seconds sys
+      20.401430000 seconds user
+       0.471681000 seconds sys
 
 
