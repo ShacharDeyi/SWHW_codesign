@@ -36,31 +36,31 @@ psutil==7.0.0
 pyperf==2.6.3
 
 [1/1] json_dumps...
-# /root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/bin/python -u /usr/local/lib/python3.10/dist-packages/pyperformance/data-files/benchmarks/bm_json_dumps/run_benchmark.py --output /tmp/tmpo73cnz36 --inherit-environ PYPERFORMANCE_RUNID
+# /root/SWHW_codesign/info/venv/cpython3.10-15d46bfa7d02-compat-af96b9431081/bin/python -u /usr/local/lib/python3.10/dist-packages/pyperformance/data-files/benchmarks/bm_json_dumps/run_benchmark.py --output /tmp/tmpi5v5ycpu --inherit-environ PYPERFORMANCE_RUNID
 .....................
-json_dumps: Mean +- std dev: 60.8 ms +- 1.2 ms
+json_dumps: Mean +- std dev: 60.7 ms +- 0.9 ms
 
 Performance version: 1.11.0
 Python version: 3.10.12 (64-bit)
 Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
 Number of logical CPUs: 1
-Start date: 2025-08-05 11:26:08.544731
-End date: 2025-08-05 11:26:22.332498
+Start date: 2025-08-05 12:17:20.569654
+End date: 2025-08-05 12:17:34.322540
 
 ### json_dumps ###
-Mean +- std dev: 60.8 ms +- 1.2 ms
+Mean +- std dev: 60.7 ms +- 0.9 ms
 
 
  Performance counter stats for 'python3-dbg -m pyperformance run --bench json_dumps':
 
-           4483122      cache-misses              #    1.153 % of all cache refs    
-         388872114      cache-references                                            
-       50335815819      cycles                                                      
-       96569119270      instructions              #    1.92  insn per cycle         
+           4033314      cache-misses              #    1.048 % of all cache refs    
+         384968356      cache-references                                            
+       50143482758      cycles                                                      
+       96646367461      instructions              #    1.93  insn per cycle         
 
-      19.648607944 seconds time elapsed
+      19.574499413 seconds time elapsed
 
-      18.919418000 seconds user
-       0.644648000 seconds sys
+      18.892036000 seconds user
+       0.606914000 seconds sys
 
 
