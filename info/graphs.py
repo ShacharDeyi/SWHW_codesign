@@ -38,8 +38,9 @@ try:
     # 2. perf record
     run_command(
         ["perf", "record", "-F", "999", "-g", "-o", str(PERF_DATA), "--",
-         "python3-dbg", "-m", "pyperformance", "run", "--bench", BENCHMARK]
+        "python3-dbg", "-m", "pyperformance", "run", "--bench", BENCHMARK]
     )
+
 
     # 2.5. perf report --stdio
     with open(PERF_REPORT, "w") as report_out:
