@@ -31,13 +31,16 @@ def run_command(command, output_file=None):
 try:
     # 1. perf stat (cache misses, references)
     run_command(
-        ["perf", "stat", "-e", "cache-misses,cache-references,cycles,instructions", "--", "python3-dbg", "-m", "pyperformance", "run", "--bench", BENCHMARK],
-        STAT_OUTPUT
+    [
+        "perf", "stat",
+        "-e", "task-clock,context-switches,page-faults,cache-references,cache-misses,cycles,instructions",
+        "--", "python3-dbg", "-m", "pyperformance", "run", "--bench", BENCHMARK
+    ], STAT_OUTPUT
     )
 
     # 2. perf record
     run_command(
-        ["perf", "record", "-F", "999", "-g", "-o", str(PERF_DATA), "--",
+        ["perf", "record", "-F", "999", "-g", "--call-graph", "dwarf", "-o", str(PERF_DATA), "--",
         "python3-dbg", "-m", "pyperformance", "run", "--bench", BENCHMARK]
     )
 
