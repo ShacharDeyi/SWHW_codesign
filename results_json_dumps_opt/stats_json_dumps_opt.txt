@@ -1,0 +1,154 @@
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (json_dumps_opt)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-b5553e026801-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-b5553e026801-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-b5553e026801-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.10.0
+# /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.10.0
+
+[1/1] json_dumps_opt...
+# /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_json_dumps_opt/run_benchmark.py --output /tmp/tmpdjahnztg --inherit-environ PYPERFORMANCE_RUNID
+.....................
+WARNING: the benchmark result may be unstable
+* Not enough samples to get a stable result (95% certainly of less than 1% variation)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+json_dumps: Mean +- std dev: 35.7 ms +- 0.8 ms
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-19 12:03:37.164323
+End date: 2025-08-19 12:03:54.019052
+
+### json_dumps ###
+Mean +- std dev: 35.7 ms +- 0.8 ms
+
+heck PEP 632 for potential alternatives
+  from distutils.cmd import Command as DistutilsCommand
+/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+  from distutils.sysconfig import get_config_vars, is_virtual_environment
+
+ Performance counter stats for 'python3-dbg -m pyperformance run --bench json_dumps_opt':
+
+          22734.00 msec task-clock                #    0.989 CPUs utilized          
+              3077      context-switches          #  135.348 /sec                   
+            157355      page-faults               #    6.922 K/sec                  
+         406200013      cache-references          #   17.868 M/sec                  
+           7770346      cache-misses              #    1.913 % of all cache refs    
+       58624531826      cycles                    #    2.579 GHz                    
+      115688430670      instructions              #    1.97  insn per cycle         
+
+      22.980141669 seconds time elapsed
+
+      22.149993000 seconds user
+       0.633869000 seconds sys
+
+
+[*] Running perf record...
+Couldn't record kernel reference relocation symbol
+Symbol resolution may be skewed if relocation was used (e.g. kexec).
+Check /proc/kallsyms permission or run as root.
+perf_event__synthesize_bpf_events: failed to synthesize bpf images: No such file or directory
+Couldn't synthesize bpf events.
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (json_dumps_opt)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+/root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+  from distutils.cmd import Command as DistutilsCommand
+/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+  from distutils.sysconfig import get_config_vars, is_virtual_environment
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-b5553e026801-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-b5553e026801-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/bin/python -m pip install psutil
+/root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+  from distutils.cmd import Command as DistutilsCommand
+/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+  from distutils.sysconfig import get_config_vars, is_virtual_environment
+Requirement already satisfied: psutil in ./venv/cpython3.10-b5553e026801-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/bin/python -m pip freeze
+/root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+  from distutils.cmd import Command as DistutilsCommand
+/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+  from distutils.sysconfig import get_config_vars, is_virtual_environment
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.10.0
+# /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/bin/python -m pip freeze
+/root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+  from distutils.cmd import Command as DistutilsCommand
+/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+  from distutils.sysconfig import get_config_vars, is_virtual_environment
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.10.0
+
+[1/1] json_dumps_opt...
+# /root/pyperformance/venv/cpython3.10-b5553e026801-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_json_dumps_opt/run_benchmark.py --output /tmp/tmp5bmul55l --inherit-environ PYPERFORMANCE_RUNID
+.....................
+WARNING: the benchmark result may be unstable
+* Not enough samples to get a stable result (95% certainly of less than 1% variation)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+json_dumps: Mean +- std dev: 36.8 ms +- 1.0 ms
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-19 12:04:00.436565
+End date: 2025-08-19 12:04:17.806485
+
+### json_dumps ###
+Mean +- std dev: 36.8 ms +- 1.0 ms
+
+[ perf record: Woken up 9 times to write data ]
+[ perf record: Captured and wrote 2.164 MB perf.data (23581 samples) ]
+Warning:
+Kernel address maps (/proc/{kallsyms,modules}) were restricted.
+
+Check /proc/sys/kernel/kptr_restrict before running 'perf record'.
+
+As no suitable kallsyms nor vmlinux was found, kernel samples
+can't be resolved.
+
+Samples in kernel modules can't be resolved as well.
+
+[*] Generating flamegraph...
+[+] Done! Logs saved in results_json_dumps_opt/stats_json_dumps_opt.txt
+[+] Flamegraph generated: results_json_dumps_opt/flamegraph_json_dumps_opt.svg
