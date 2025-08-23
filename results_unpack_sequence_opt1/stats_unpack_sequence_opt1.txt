@@ -2,7 +2,7 @@ Python benchmark suite 1.11.0
 
 
 ==================================================
-( 1/1) creating venv for benchmark (unpack_sequence)
+( 1/1) creating venv for benchmark (unpack_sequence_opt1)
 
 (trying common venv first)
 Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
@@ -23,48 +23,8 @@ psutil==7.0.0
 pyperf==2.9.0
 ujson==5.11.0
 
-[1/1] unpack_sequence...
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence/run_benchmark.py --output /tmp/tmp6brmren4 --inherit-environ PYPERFORMANCE_RUNID
-.....................
-unpack_sequence: Mean +- std dev: 163 ns +- 1 ns
-
-Performance version: 1.11.0
-Python version: 3.10.12 (64-bit)
-Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
-Number of logical CPUs: 1
-Start date: 2025-08-23 12:37:43.889101
-End date: 2025-08-23 12:38:00.256547
-
-### unpack_sequence ###
-Mean +- std dev: 163 ns +- 1 ns
-
-Python benchmark suite 1.11.0
-
-
-==================================================
-( 1/1) creating venv for benchmark (unpack_sequence)
-
-(trying common venv first)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
-Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
-Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
-Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-
-[1/1] unpack_sequence...
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence/run_benchmark.py --output /tmp/tmpfc45mxu3 --inherit-environ PYPERFORMANCE_RUNID
+[1/1] unpack_sequence_opt1...
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence_opt1/run_benchmark.py --output /tmp/tmp_1_mci5t --inherit-environ PYPERFORMANCE_RUNID
 .....................
 unpack_sequence: Mean +- std dev: 164 ns +- 1 ns
 
@@ -72,8 +32,8 @@ Performance version: 1.11.0
 Python version: 3.10.12 (64-bit)
 Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
 Number of logical CPUs: 1
-Start date: 2025-08-23 12:38:06.370022
-End date: 2025-08-23 12:38:22.675057
+Start date: 2025-08-23 12:41:54.113090
+End date: 2025-08-23 12:42:10.421759
 
 ### unpack_sequence ###
 Mean +- std dev: 164 ns +- 1 ns
@@ -82,7 +42,7 @@ Python benchmark suite 1.11.0
 
 
 ==================================================
-( 1/1) creating venv for benchmark (unpack_sequence)
+( 1/1) creating venv for benchmark (unpack_sequence_opt1)
 
 (trying common venv first)
 Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
@@ -103,48 +63,8 @@ psutil==7.0.0
 pyperf==2.9.0
 ujson==5.11.0
 
-[1/1] unpack_sequence...
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence/run_benchmark.py --output /tmp/tmpfeo0atcf --inherit-environ PYPERFORMANCE_RUNID
-.....................
-unpack_sequence: Mean +- std dev: 163 ns +- 0 ns
-
-Performance version: 1.11.0
-Python version: 3.10.12 (64-bit)
-Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
-Number of logical CPUs: 1
-Start date: 2025-08-23 12:38:28.744953
-End date: 2025-08-23 12:38:45.068734
-
-### unpack_sequence ###
-Mean +- std dev: 163 ns +- 0 ns
-
-Python benchmark suite 1.11.0
-
-
-==================================================
-( 1/1) creating venv for benchmark (unpack_sequence)
-
-(trying common venv first)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
-Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
-Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
-Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-
-[1/1] unpack_sequence...
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence/run_benchmark.py --output /tmp/tmpa6xw4ln4 --inherit-environ PYPERFORMANCE_RUNID
+[1/1] unpack_sequence_opt1...
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence_opt1/run_benchmark.py --output /tmp/tmp75d6ser8 --inherit-environ PYPERFORMANCE_RUNID
 .....................
 unpack_sequence: Mean +- std dev: 164 ns +- 2 ns
 
@@ -152,8 +72,8 @@ Performance version: 1.11.0
 Python version: 3.10.12 (64-bit)
 Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
 Number of logical CPUs: 1
-Start date: 2025-08-23 12:38:51.119976
-End date: 2025-08-23 12:39:07.482014
+Start date: 2025-08-23 12:42:16.538675
+End date: 2025-08-23 12:42:32.883313
 
 ### unpack_sequence ###
 Mean +- std dev: 164 ns +- 2 ns
@@ -162,7 +82,7 @@ Python benchmark suite 1.11.0
 
 
 ==================================================
-( 1/1) creating venv for benchmark (unpack_sequence)
+( 1/1) creating venv for benchmark (unpack_sequence_opt1)
 
 (trying common venv first)
 Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
@@ -183,208 +103,8 @@ psutil==7.0.0
 pyperf==2.9.0
 ujson==5.11.0
 
-[1/1] unpack_sequence...
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence/run_benchmark.py --output /tmp/tmpd8kglkn8 --inherit-environ PYPERFORMANCE_RUNID
-.....................
-unpack_sequence: Mean +- std dev: 163 ns +- 0 ns
-
-Performance version: 1.11.0
-Python version: 3.10.12 (64-bit)
-Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
-Number of logical CPUs: 1
-Start date: 2025-08-23 12:39:13.560510
-End date: 2025-08-23 12:39:29.876630
-
-### unpack_sequence ###
-Mean +- std dev: 163 ns +- 0 ns
-
-Python benchmark suite 1.11.0
-
-
-==================================================
-( 1/1) creating venv for benchmark (unpack_sequence)
-
-(trying common venv first)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
-Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
-Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
-Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-
-[1/1] unpack_sequence...
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence/run_benchmark.py --output /tmp/tmprdsoueya --inherit-environ PYPERFORMANCE_RUNID
-.....................
-unpack_sequence: Mean +- std dev: 163 ns +- 0 ns
-
-Performance version: 1.11.0
-Python version: 3.10.12 (64-bit)
-Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
-Number of logical CPUs: 1
-Start date: 2025-08-23 12:39:35.985567
-End date: 2025-08-23 12:39:52.318030
-
-### unpack_sequence ###
-Mean +- std dev: 163 ns +- 0 ns
-
-Python benchmark suite 1.11.0
-
-
-==================================================
-( 1/1) creating venv for benchmark (unpack_sequence)
-
-(trying common venv first)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
-Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
-Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
-Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-
-[1/1] unpack_sequence...
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence/run_benchmark.py --output /tmp/tmppk76qgmz --inherit-environ PYPERFORMANCE_RUNID
-.....................
-unpack_sequence: Mean +- std dev: 164 ns +- 1 ns
-
-Performance version: 1.11.0
-Python version: 3.10.12 (64-bit)
-Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
-Number of logical CPUs: 1
-Start date: 2025-08-23 12:39:58.409311
-End date: 2025-08-23 12:40:14.758126
-
-### unpack_sequence ###
-Mean +- std dev: 164 ns +- 1 ns
-
-Python benchmark suite 1.11.0
-
-
-==================================================
-( 1/1) creating venv for benchmark (unpack_sequence)
-
-(trying common venv first)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
-Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
-Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
-Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-
-[1/1] unpack_sequence...
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence/run_benchmark.py --output /tmp/tmp1ncqatjh --inherit-environ PYPERFORMANCE_RUNID
-.....................
-unpack_sequence: Mean +- std dev: 164 ns +- 1 ns
-
-Performance version: 1.11.0
-Python version: 3.10.12 (64-bit)
-Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
-Number of logical CPUs: 1
-Start date: 2025-08-23 12:40:20.820361
-End date: 2025-08-23 12:40:37.143828
-
-### unpack_sequence ###
-Mean +- std dev: 164 ns +- 1 ns
-
-Python benchmark suite 1.11.0
-
-
-==================================================
-( 1/1) creating venv for benchmark (unpack_sequence)
-
-(trying common venv first)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
-Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
-Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
-Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-
-[1/1] unpack_sequence...
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence/run_benchmark.py --output /tmp/tmpd6tepr7k --inherit-environ PYPERFORMANCE_RUNID
-.....................
-unpack_sequence: Mean +- std dev: 163 ns +- 0 ns
-
-Performance version: 1.11.0
-Python version: 3.10.12 (64-bit)
-Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
-Number of logical CPUs: 1
-Start date: 2025-08-23 12:40:43.229602
-End date: 2025-08-23 12:40:59.528464
-
-### unpack_sequence ###
-Mean +- std dev: 163 ns +- 0 ns
-
-Python benchmark suite 1.11.0
-
-
-==================================================
-( 1/1) creating venv for benchmark (unpack_sequence)
-
-(trying common venv first)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
-Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
-Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
-Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
-Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-orjson==3.11.2
-psutil==7.0.0
-pyperf==2.9.0
-ujson==5.11.0
-
-[1/1] unpack_sequence...
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence/run_benchmark.py --output /tmp/tmpjevdshuo --inherit-environ PYPERFORMANCE_RUNID
+[1/1] unpack_sequence_opt1...
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence_opt1/run_benchmark.py --output /tmp/tmp6957z9vf --inherit-environ PYPERFORMANCE_RUNID
 .....................
 unpack_sequence: Mean +- std dev: 163 ns +- 1 ns
 
@@ -392,267 +112,293 @@ Performance version: 1.11.0
 Python version: 3.10.12 (64-bit)
 Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
 Number of logical CPUs: 1
-Start date: 2025-08-23 12:41:05.673402
-End date: 2025-08-23 12:41:22.003814
+Start date: 2025-08-23 12:42:39.007795
+End date: 2025-08-23 12:42:55.297052
 
 ### unpack_sequence ###
 Mean +- std dev: 163 ns +- 1 ns
 
-eprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-
- Performance counter stats for 'python3-dbg -m pyperformance run --bench unpack_sequence' (10 runs):
-
-          22224.38 msec task-clock                #    0.991 CPUs utilized            ( +-  0.03% )
-              3114      context-switches          #  140.311 /sec                     ( +-  0.56% )
-            159696      page-faults               #    7.196 K/sec                    ( +-  0.00% )
-         381598790      cache-references          #   17.194 M/sec                    ( +-  0.05% )
-           8102897      cache-misses              #    2.128 % of all cache refs      ( +-  1.22% )
-       57348849875      cycles                    #    2.584 GHz                      ( +-  0.03% )
-      138821524057      instructions              #    2.42  insn per cycle           ( +-  0.00% )
-
-           22.4241 +- 0.0118 seconds time elapsed  ( +-  0.05% )
-
-[*] Running perf record...
-Couldn't record kernel reference relocation symbol
-Symbol resolution may be skewed if relocation was used (e.g. kexec).
-Check /proc/kallsyms permission or run as root.
-perf_event__synthesize_bpf_events: failed to synthesize bpf images: No such file or directory
-Couldn't synthesize bpf events.
 Python benchmark suite 1.11.0
 
 
 ==================================================
-( 1/1) creating venv for benchmark (unpack_sequence)
+( 1/1) creating venv for benchmark (unpack_sequence_opt1)
 
 (trying common venv first)
 Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
 # /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
 Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
 Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
 Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
 # /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
 Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
 # /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
 orjson==3.11.2
 psutil==7.0.0
 pyperf==2.9.0
 ujson==5.11.0
 # /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
 orjson==3.11.2
 psutil==7.0.0
 pyperf==2.9.0
 ujson==5.11.0
 
-[1/1] unpack_sequence...
-# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence/run_benchmark.py --output /tmp/tmp2e5nq2cr --inherit-environ PYPERFORMANCE_RUNID
+[1/1] unpack_sequence_opt1...
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence_opt1/run_benchmark.py --output /tmp/tmpe4_vshpy --inherit-environ PYPERFORMANCE_RUNID
 .....................
-unpack_sequence: Mean +- std dev: 167 ns +- 0 ns
+unpack_sequence: Mean +- std dev: 164 ns +- 1 ns
 
 Performance version: 1.11.0
 Python version: 3.10.12 (64-bit)
 Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
 Number of logical CPUs: 1
-Start date: 2025-08-23 12:41:28.511955
-End date: 2025-08-23 12:41:45.356528
+Start date: 2025-08-23 12:43:01.399497
+End date: 2025-08-23 12:43:17.704603
 
 ### unpack_sequence ###
-Mean +- std dev: 167 ns +- 0 ns
+Mean +- std dev: 164 ns +- 1 ns
 
-[ perf record: Woken up 9 times to write data ]
-[ perf record: Captured and wrote 2.077 MB perf.data (22969 samples) ]
-Warning:
-Kernel address maps (/proc/{kallsyms,modules}) were restricted.
+Python benchmark suite 1.11.0
 
-Check /proc/sys/kernel/kptr_restrict before running 'perf record'.
 
-As no suitable kallsyms nor vmlinux was found, kernel samples
-can't be resolved.
+==================================================
+( 1/1) creating venv for benchmark (unpack_sequence_opt1)
 
-Samples in kernel modules can't be resolved as well.
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
 
-[*] Generating flamegraph...
-[+] Done with unpack_sequence! Results in results_unpack_sequence
+[1/1] unpack_sequence_opt1...
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence_opt1/run_benchmark.py --output /tmp/tmpglao9nkf --inherit-environ PYPERFORMANCE_RUNID
+.....................
+unpack_sequence: Mean +- std dev: 164 ns +- 1 ns
 
-===============================================
-[*] Running benchmark: unpack_sequence_opt1
-===============================================
-[*] Running perf stat...
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
-  from distutils.cmd import Command as DistutilsCommand
-/usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
-  from distutils.sysconfig import get_config_vars, is_virtual_environment
-/root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-23 12:43:23.775254
+End date: 2025-08-23 12:43:40.096171
+
+### unpack_sequence ###
+Mean +- std dev: 164 ns +- 1 ns
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (unpack_sequence_opt1)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] unpack_sequence_opt1...
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence_opt1/run_benchmark.py --output /tmp/tmp_r4n2998 --inherit-environ PYPERFORMANCE_RUNID
+.....................
+unpack_sequence: Mean +- std dev: 164 ns +- 1 ns
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-23 12:43:46.184350
+End date: 2025-08-23 12:44:02.540542
+
+### unpack_sequence ###
+Mean +- std dev: 164 ns +- 1 ns
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (unpack_sequence_opt1)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] unpack_sequence_opt1...
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence_opt1/run_benchmark.py --output /tmp/tmp8xfj98v7 --inherit-environ PYPERFORMANCE_RUNID
+.....................
+unpack_sequence: Mean +- std dev: 163 ns +- 0 ns
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-23 12:44:08.660502
+End date: 2025-08-23 12:44:24.984641
+
+### unpack_sequence ###
+Mean +- std dev: 163 ns +- 0 ns
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (unpack_sequence_opt1)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] unpack_sequence_opt1...
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence_opt1/run_benchmark.py --output /tmp/tmpn9loxf11 --inherit-environ PYPERFORMANCE_RUNID
+.....................
+unpack_sequence: Mean +- std dev: 164 ns +- 1 ns
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-23 12:44:31.131663
+End date: 2025-08-23 12:44:47.534014
+
+### unpack_sequence ###
+Mean +- std dev: 164 ns +- 1 ns
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (unpack_sequence_opt1)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] unpack_sequence_opt1...
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence_opt1/run_benchmark.py --output /tmp/tmppc19bvwj --inherit-environ PYPERFORMANCE_RUNID
+.....................
+unpack_sequence: Mean +- std dev: 164 ns +- 1 ns
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-23 12:44:53.624919
+End date: 2025-08-23 12:45:09.957153
+
+### unpack_sequence ###
+Mean +- std dev: 164 ns +- 1 ns
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (unpack_sequence_opt1)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] unpack_sequence_opt1...
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence_opt1/run_benchmark.py --output /tmp/tmp2559bm4b --inherit-environ PYPERFORMANCE_RUNID
+.....................
+unpack_sequence: Mean +- std dev: 164 ns +- 1 ns
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-23 12:45:16.048545
+End date: 2025-08-23 12:45:32.415194
+
+### unpack_sequence ###
+Mean +- std dev: 164 ns +- 1 ns
+
+natives
   from distutils.cmd import Command as DistutilsCommand
 /usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
   from distutils.sysconfig import get_config_vars, is_virtual_environment
@@ -695,22 +441,62 @@ Symbol resolution may be skewed if relocation was used (e.g. kexec).
 Check /proc/kallsyms permission or run as root.
 perf_event__synthesize_bpf_events: failed to synthesize bpf images: No such file or directory
 Couldn't synthesize bpf events.
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (unpack_sequence_opt1)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
 /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
   from distutils.cmd import Command as DistutilsCommand
 /usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
   from distutils.sysconfig import get_config_vars, is_virtual_environment
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip install psutil
 /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
   from distutils.cmd import Command as DistutilsCommand
 /usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
   from distutils.sysconfig import get_config_vars, is_virtual_environment
+Requirement already satisfied: psutil in ./venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
 /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
   from distutils.cmd import Command as DistutilsCommand
 /usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
   from distutils.sysconfig import get_config_vars, is_virtual_environment
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -m pip freeze
 /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/lib/python3.10/site-packages/pip/_internal/locations/_distutils.py:9: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
   from distutils.cmd import Command as DistutilsCommand
 /usr/lib/python3.10/distutils/command/install.py:13: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
   from distutils.sysconfig import get_config_vars, is_virtual_environment
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] unpack_sequence_opt1...
+# /root/pyperformance/venv/cpython3.10-50e771a2d452-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_unpack_sequence_opt1/run_benchmark.py --output /tmp/tmpj7tjerd4 --inherit-environ PYPERFORMANCE_RUNID
+.....................
+unpack_sequence: Mean +- std dev: 167 ns +- 1 ns
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-23 12:45:38.950024
+End date: 2025-08-23 12:45:55.862681
+
+### unpack_sequence ###
+Mean +- std dev: 167 ns +- 1 ns
+
 [ perf record: Woken up 9 times to write data ]
 [ perf record: Captured and wrote 2.089 MB perf.data (23000 samples) ]
 Warning:
