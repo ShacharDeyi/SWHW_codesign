@@ -7,6 +7,9 @@ if [ $# -lt 1 ]; then
 fi
 
 echo 100000 > /proc/sys/kernel/perf_event_max_sample_rate
+
+./trash
+
 NAME=$1
 RESULTS_DIR="results_${NAME}"
 FILE="${RESULTS_DIR}/stats_${NAME}.txt"
@@ -17,7 +20,7 @@ mkdir -p "$RESULTS_DIR"
 exec > >(tee -a "$FILE") 2>&1
 
 echo "[*] Running perf stat..."
-perf stat -e task-clock,context-switches,page-faults,cache-references,cache-misses,cycles,instructions \
+perf stat -r 10 -e task-clock,context-switches,page-faults,cache-references,cache-misses,cycles,instructions \
     python3-dbg -m pyperformance run --bench ${NAME} > "$FILE"
 
 echo "[*] Running perf record..."
