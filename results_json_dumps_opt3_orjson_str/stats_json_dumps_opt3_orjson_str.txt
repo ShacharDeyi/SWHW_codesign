@@ -1,0 +1,453 @@
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (json_dumps_opt3_orjson_str)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] json_dumps_opt3_orjson_str...
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_json_dumps_opt3_orjson_str/run_benchmark.py --output /tmp/tmp7kcxheg9 --inherit-environ PYPERFORMANCE_RUNID
+.....................
+WARNING: the benchmark result may be unstable
+* Not enough samples to get a stable result (95% certainly of less than 1% variation)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+json_dumps: Mean +- std dev: 9.96 ms +- 0.18 ms
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-28 07:54:50.927840
+End date: 2025-08-28 07:55:09.966525
+
+### json_dumps ###
+Mean +- std dev: 9.96 ms +- 0.18 ms
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (json_dumps_opt3_orjson_str)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] json_dumps_opt3_orjson_str...
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_json_dumps_opt3_orjson_str/run_benchmark.py --output /tmp/tmp403y4f1c --inherit-environ PYPERFORMANCE_RUNID
+.....................
+json_dumps: Mean +- std dev: 9.87 ms +- 0.07 ms
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-28 07:55:14.394861
+End date: 2025-08-28 07:55:33.447871
+
+### json_dumps ###
+Mean +- std dev: 9.87 ms +- 0.07 ms
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (json_dumps_opt3_orjson_str)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] json_dumps_opt3_orjson_str...
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_json_dumps_opt3_orjson_str/run_benchmark.py --output /tmp/tmpe_a7__16 --inherit-environ PYPERFORMANCE_RUNID
+.....................
+WARNING: the benchmark result may be unstable
+* Not enough samples to get a stable result (95% certainly of less than 1% variation)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+json_dumps: Mean +- std dev: 9.97 ms +- 0.30 ms
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-28 07:55:37.831327
+End date: 2025-08-28 07:55:57.093076
+
+### json_dumps ###
+Mean +- std dev: 9.97 ms +- 0.30 ms
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (json_dumps_opt3_orjson_str)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] json_dumps_opt3_orjson_str...
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_json_dumps_opt3_orjson_str/run_benchmark.py --output /tmp/tmporlgf0jp --inherit-environ PYPERFORMANCE_RUNID
+.....................
+WARNING: the benchmark result may be unstable
+* Not enough samples to get a stable result (95% certainly of less than 1% variation)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+json_dumps: Mean +- std dev: 10.0 ms +- 0.2 ms
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-28 07:56:01.631420
+End date: 2025-08-28 07:56:20.899670
+
+### json_dumps ###
+Mean +- std dev: 10.0 ms +- 0.2 ms
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (json_dumps_opt3_orjson_str)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] json_dumps_opt3_orjson_str...
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_json_dumps_opt3_orjson_str/run_benchmark.py --output /tmp/tmpli7ypuv_ --inherit-environ PYPERFORMANCE_RUNID
+.....................
+WARNING: the benchmark result may be unstable
+* Not enough samples to get a stable result (95% certainly of less than 1% variation)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+json_dumps: Mean +- std dev: 9.90 ms +- 0.15 ms
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-28 07:56:25.278508
+End date: 2025-08-28 07:56:43.977314
+
+### json_dumps ###
+Mean +- std dev: 9.90 ms +- 0.15 ms
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (json_dumps_opt3_orjson_str)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] json_dumps_opt3_orjson_str...
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_json_dumps_opt3_orjson_str/run_benchmark.py --output /tmp/tmpp2ozzl_t --inherit-environ PYPERFORMANCE_RUNID
+.....................
+json_dumps: Mean +- std dev: 9.85 ms +- 0.06 ms
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-28 07:56:48.311228
+End date: 2025-08-28 07:57:06.991584
+
+### json_dumps ###
+Mean +- std dev: 9.85 ms +- 0.06 ms
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (json_dumps_opt3_orjson_str)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] json_dumps_opt3_orjson_str...
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_json_dumps_opt3_orjson_str/run_benchmark.py --output /tmp/tmp774k5wdq --inherit-environ PYPERFORMANCE_RUNID
+.....................
+json_dumps: Mean +- std dev: 9.89 ms +- 0.11 ms
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-28 07:57:11.312368
+End date: 2025-08-28 07:57:29.978867
+
+### json_dumps ###
+Mean +- std dev: 9.89 ms +- 0.11 ms
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (json_dumps_opt3_orjson_str)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] json_dumps_opt3_orjson_str...
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_json_dumps_opt3_orjson_str/run_benchmark.py --output /tmp/tmpl_4uhs_r --inherit-environ PYPERFORMANCE_RUNID
+.....................
+WARNING: the benchmark result may be unstable
+* Not enough samples to get a stable result (95% certainly of less than 1% variation)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+json_dumps: Mean +- std dev: 9.95 ms +- 0.21 ms
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-28 07:57:34.301018
+End date: 2025-08-28 07:57:53.094771
+
+### json_dumps ###
+Mean +- std dev: 9.95 ms +- 0.21 ms
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (json_dumps_opt3_orjson_str)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] json_dumps_opt3_orjson_str...
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_json_dumps_opt3_orjson_str/run_benchmark.py --output /tmp/tmp9l6ynga_ --inherit-environ PYPERFORMANCE_RUNID
+.....................
+json_dumps: Mean +- std dev: 9.89 ms +- 0.10 ms
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-28 07:57:57.429744
+End date: 2025-08-28 07:58:16.266902
+
+### json_dumps ###
+Mean +- std dev: 9.89 ms +- 0.10 ms
+
+Python benchmark suite 1.11.0
+
+
+==================================================
+( 1/1) creating venv for benchmark (json_dumps_opt3_orjson_str)
+
+(trying common venv first)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install pyperf==2.9.0
+Requirement already satisfied: pyperf==2.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (2.9.0)
+Requirement already satisfied: psutil>=5.9.0 in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (from pyperf==2.9.0) (7.0.0)
+Installing requirements into the virtual environment /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip install psutil
+Requirement already satisfied: psutil in ./venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/lib/python3.10/site-packages (7.0.0)
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -m pip freeze
+orjson==3.11.2
+psutil==7.0.0
+pyperf==2.9.0
+ujson==5.11.0
+
+[1/1] json_dumps_opt3_orjson_str...
+# /root/pyperformance/venv/cpython3.10-0a9018edfeae-compat-64aaec271e6b/bin/python -u /root/pyperformance/pyperformance/data-files/benchmarks/bm_json_dumps_opt3_orjson_str/run_benchmark.py --output /tmp/tmpnju481jg --inherit-environ PYPERFORMANCE_RUNID
+.....................
+json_dumps: Mean +- std dev: 9.90 ms +- 0.07 ms
+
+Performance version: 1.11.0
+Python version: 3.10.12 (64-bit)
+Report on Linux-5.15.0-1085-kvm-x86_64-with-glibc2.35
+Number of logical CPUs: 1
+Start date: 2025-08-28 07:58:20.667996
+End date: 2025-08-28 07:58:39.765400
+
+### json_dumps ###
+Mean +- std dev: 9.90 ms +- 0.07 ms
+
+
+ Performance counter stats for 'python3-dbg -m pyperformance run --bench json_dumps_opt3_orjson_str' (10 runs):
+
+          22775.05 msec task-clock                #    0.977 CPUs utilized            ( +-  0.27% )
+              3027      context-switches          #  133.160 /sec                     ( +-  0.39% )
+            536677      page-faults               #   23.609 K/sec                    ( +-  0.00% )
+         518890090      cache-references          #   22.826 M/sec                    ( +-  0.16% )
+          13395636      cache-misses              #    2.571 % of all cache refs      ( +-  8.89% )
+       58802239352      cycles                    #    2.587 GHz                      ( +-  0.25% )
+      119087613312      instructions              #    2.03  insn per cycle           ( +-  0.00% )
+
+           23.3198 +- 0.0917 seconds time elapsed  ( +-  0.39% )
+

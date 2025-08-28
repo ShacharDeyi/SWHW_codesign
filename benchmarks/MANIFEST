@@ -52,6 +52,7 @@ hexiom	<local>
 json_dumps_opt1	<local>
 json_dumps_opt2_ujson	<local>
 json_dumps_opt3_orjson	<local>
+json_dumps_opt3_orjson_str	<local>
 html5lib	<local>
 json_dumps	<local>
 json_loads	<local>
