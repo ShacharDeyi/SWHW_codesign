@@ -56,8 +56,9 @@ How to run our code?
     ./script_json_dumps.sh
   ```
 What does each script do?
-- builds a python environment 
-- copies files, clones repositories and downloads relevant libraries
+- copies files
+- clones flamegraph repository
+- Downloads relevant libraries
 - runs perf tools and creates an output folder for each custom benchmark that contains:
     - perf_report.txt as shown in the project's example
     - flamegraph
