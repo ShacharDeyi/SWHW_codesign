@@ -40,16 +40,21 @@ How to run our code?
 *note: pyperformance will be our work path, all outputs will be created in pyperformance directory.
 
 - clone our repository:
+   ```bash
     git clone https://github.com/ShacharDeyi/SWHW_codesign
-- run the unpack_sequence analysis 
+	```
+- run the unpack_sequence analysis
+   ```bash
     cp SWHW_codesign/script_unpack_sequence.sh .
     chmod 777 script_unpack_sequence.sh
     ./script_unpack_sequence.sh
-- run the json_dumps analysis   
+   ```
+- run the json_dumps analysis
+   ```bash 
     cp SWHW_codesign/script_json_dumps.sh .
     chmod 777 script_json_dumps.sh
     ./script_json_dumps.sh
-
+  ```
 What does each script do?
 - builds a python environment 
 - copies files, clones repositories and downloads relevant libraries
