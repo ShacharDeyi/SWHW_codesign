@@ -1,0 +1,87 @@
+  ____                               _                __        __               _   _                    _     
+ |  _ \   _ __    ___    _ __ ___   | |_   ___        \ \      / /   ___        | | | |  ___    ___    __| |  _ 
+ | |_) | | '__|  / _ \  | '_ ` _ \  | __| / __|        \ \ /\ / /   / _ \       | | | | / __|  / _ \  / _` | (_)
+ |  __/  | |    | (_) | | | | | | | | |_  \__ \         \ V  V /   |  __/       | |_| | \__ \ |  __/ | (_| |  _ 
+ |_|     |_|     \___/  |_| |_| |_|  \__| |___/          \_/\_/     \___|        \___/  |___/  \___|  \__,_| (_)
+
+1. attached the previous script from HW1, the commands from the example in the project.pdf and my repository structure.
+	can you write me a script based on those that run a chosen as an argument benchmark and put results such as output, report and flamegraph in the correct directory?
+- i want to create a new file each time not to add to an old one from the previous run. how to do so?
+
+2.im running on qemu and python env. im trying to use perf record -F 999 -g -- python3-dbg -m script and in my script i want to compile with cython. 
+	please help me understand what i need to do in order to use cython, what i need to install, what commands to use and so on
+
+3. this is unpack_sequence benchmark from pyperformance. we want to use cython to accelatre the performance. 
+	we only want to use it in unpacking loop but keep the runner class logic in python. could you help us convert it?
+
+4. how can i download orjson into my venv-dbg?
+
+5. inserted perf command. can you add the ability to see average stats using perf?
+
+6. how is orjson also fully compatible with json but also returns bytes instead of strings?
+
+7. we know pyperf is calibrating its loops based on a first run. how would you say that our costum benchmark ran more loops and it affects its stats?
+
+8. how to calculate improvement percentage?
+
+9. why flamegraphs dont show python functions?
+
+10. i create a new evn: python3-dbg -m venv venv-dbg source venv-dbg/bin/activate 
+	everytime i want to run perf stat -r 10 -e task-clock,context-switches,page-faults,cache-references,cache-misses,cycles,instructions
+	\ python3-dbg -m pyperformance run --bench json_dumps_ujson which is a custom benchmark that uses ujson library. 
+	i get this messege that says ujson is not installed here /root/pyperformance/venv/cpython3.10-*/bin/python and its a different 
+	cpython3.10 path each time. unless i do /root/pyperformance/venv/cpython3.10-*/bin/python -m pip install ujson manually with the full 
+	path it provides it wont work. how can i avoid doingit manually?
+
+11. i want to put garbage information in the cache. can you write me a script that does it?
+- how to find cache size?
+
+12. https://pyperformance.readthedocs.io/custom_benchmarks.html based on this, help me add my benchmark unpack_sequence_opt
+
+13. how to clone my git repo into my qemu?
+
+14. help us rephrase these sentences to fit a presentation
+
+15. attached part of the unpacking_sequence benchmark. how is this assignment working? is the unpacking happening simultaneously or one after the other?
+	is there a way to make it simultaneous if it's not like that right now?
+
+16. We want to create a specific hardware unit that deals with lists/tuples and transfers them into arrays (for acceleration of the unpacking_sequence benchmark).
+	how would you measure a speedup of something like that?
+
+17. help us to create a block diagram of the new hardware unit so we could put it in a txt file. make it more precise to the following flow (added flow)
+	
+18. can you compare the implementation of dumps in ujson, json and orjson. show me the resources as well.
+
+19. can you make me ascii art of your concept of ai?
+	answer:
+	Here’s a try — a little ASCII art that represents my concept of AI: a "mind" made of circuits, 
+	branching out like neurons but still structured and digital.
+	
+														  .-""""-.
+														.'        '.
+													   /   .--.     \
+													  |   /    \     |
+													  |  |  ()  |    |
+													   \  \ '--'   ./
+														'. '-.__.-'
+														  '._  _.'
+												   _________)(_________
+												  /  .-"``  ||  ``"-.  \
+												 |  /       ||       \  |
+												 | |        ||        | |
+												 | |        ||        | |
+												 | |        ||        | |
+												  \ \       ||       / /
+												   '._     _||_     _.'
+													  `"--'    `--"`
+													   A Mind in Code
+
+
+Thanks For Reading!
+Shachar & Sahar
+	⣀⡤⢤⣄⠀⣠⡤⣤⡀⠀⠀⠀
+⠀⠀⢀⣴⢫⠞⠛⠾⠺⠟⠛⢦⢻⣆⠀⠀
+⠀⠀⣼⢇⣻⡀⠀⠀⠀⠀⠀⠀⢸⡇⢿⣆⠀
+⠀⢸⣯⢦⣽⣷⣄⡀⠀⢀⣴⣿⣳⣬⣿⠀
+⢠⡞⢩⣿⠋⠙⠳⣽⢾⣯⠛⠙⢹⣯⠘⣷
+⠀⠈⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠋⠁⠀⠀

@@ -1,11 +1,24 @@
 #!/bin/bash
 
+#virtual env setup
+sudo apt install python3.10-venv
+python3-dbg -m venv venv-dbg
+source venv-dbg/bin/activate
+pip install --upgrade pip
+pip install pyperformance
+pip install git+https://github.com/python/pyperformance.git
+git clone https://github.com/python/pyperformance.git
+pip install -e ./pyperformance
+
+#copy files
+git clone https://github.com/brendangregg/FlameGraph.git
+cp SWHW_codesign/trash.cpp ./trash.cpp
+cp -r SWHW_codesign/benchmarks/bm_unpack_sequence* pyperformance/benchmarks/
+cp SWHW_codesign/benchmarks/MANIFEST pyperformance/benchmarks/
+
+
 # List of benchmarks to run
 BENCHES=(
-    json_dumps
-    json_dumps_opt1
-    json_dumps_opt2_ujson
-    json_dumps_opt3_orjson
     unpack_sequence
     unpack_sequence_opt1
     unpack_sequence_opt2
@@ -18,22 +31,9 @@ echo 100000 > /proc/sys/kernel/perf_event_max_sample_rate
 # Compile trash
 g++ -O2 -std=c++17 trash.cpp -o trash
 
-# Detect pyperformance internal venv
-PYPERF_VENV=$(python3-dbg -m pyperformance venv show | sed -n 's/^Virtual environment path: \([^ ]*\).*/\1/p')
-
-if [ -z "$PYPERF_VENV" ]; then
-    echo "[*] Pyperformance internal venv not found, creating..."
-    python3-dbg -m pyperformance venv create
-    PYPERF_VENV=$(python3-dbg -m pyperformance venv show | sed -n 's/^Virtual environment path: \([^ ]*\).*/\1/p')
-fi
-
-echo "[*] Pyperformance internal venv detected at: $PYPERF_VENV"
-
-# Upgrade pip in the internal venv
-$PYPERF_VENV/bin/python -m pip install --upgrade pip
-
-# Install required packages
-$PYPERF_VENV/bin/python -m pip install ujson orjson
+#install cython
+pip install --upgrade pip setuptools wheel
+pip install cython
 
 for NAME in "${BENCHES[@]}"; do
     echo "==============================================="
@@ -54,13 +54,14 @@ for NAME in "${BENCHES[@]}"; do
     ./trash
     perf record -F 999 -g -- python3-dbg -m pyperformance run --bench ${NAME}
     perf report --stdio > "${RESULTS_DIR}/report_${NAME}.txt"
-    perf script | ../FlameGraph/stackcollapse-perf.pl > "${RESULTS_DIR}/out.folded"
+    perf script | ./FlameGraph/stackcollapse-perf.pl > "${RESULTS_DIR}/out.folded"
 
     echo "[*] Generating flamegraph..."
-    ../FlameGraph/flamegraph.pl "${RESULTS_DIR}/out.folded" > "${RESULTS_DIR}/flamegraph_${NAME}.svg"
+    ./FlameGraph/flamegraph.pl "${RESULTS_DIR}/out.folded" > "${RESULTS_DIR}/flamegraph_${NAME}.svg"
 
     echo "[+] Done with ${NAME}! Results in $RESULTS_DIR"
     echo
 done
 
 echo "[✓] All benchmarks finished!"
+
