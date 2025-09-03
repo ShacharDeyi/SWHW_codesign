@@ -1,0 +1,489 @@
+							
+			(¯`*•.¸,¤°´✿.｡.:* "" *.:｡.✿`°¤,¸.•*´¯)
+ _   _ _   _ ____   _    ____ _  __    ____  _____ ___  _   _ _____ _   _  ____ _____ 
+| | | | \ | |  _ \ / \  / ___| |/ /   / ___|| ____/ _ \| | | | ____| \ | |/ ___| ____|
+| | | |  \| | |_) / _ \| |   | ' /    \___ \|  _|| | | | | | |  _| |  \| | |   |  _|  
+| |_| | |\  |  __/ ___ \ |___| . \     ___) | |__| |_| | |_| | |___| |\  | |___| |___ 
+ \___/|_| \_|_| /_/   \_\____|_|\_\___|____/|_____\__\_\\___/|_____|_| \_|\____|_____|
+                                 |_____|                                              
+In this project we chose to optimize the benchmark of 𝐮𝐧𝐩𝐚𝐜𝐤_𝐬𝐞𝐪𝐮𝐞𝐧𝐜𝐞.
+
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ Environment & Custom Benchmarks ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+How to run the benchmarks?
+
+1. create python3-dbg env
+	a. sudo apt install python3.10-venv
+	b. python3-dbg -m venv venv-dbg
+	c. source venv-dbg/bin/activate
+	d. pip install --upgrade pip
+	e. pip install pyperformance
+	f. pip install git+https://github.com/python/pyperformance.git
+	g. git clone https://github.com/python/pyperformance.git
+	h. cd pyperformance
+	i. pip install -e .
+
+2. For each benchmark we created a custom benchmark:
+	a. ${NAME} == name of benchmark
+	b. cd pyperformance/benchmark
+	c. nano MANIFEST -> add the line: ${NAME}	<local>
+	d. cp -r bm_${original_name} bm_${NAME}
+	e. cd bm_${NAME}
+	f. Edit run_benchmark.py to your needs
+	g. Edit pyproject.toml to match ${NAME}:
+		[project]
+		name = "pyperformance_bm_${NAME}"
+		requires-python = ">=3.8"
+		dependencies = ["pyperf"]
+		urls = {repository = "https://github.com/python/pyperformance"}
+		dynamic = ["version"]
+
+		[tool.pyperformance]
+		name = "${NAME}"
+		
+Specific setup for bm_unpack_sequence_opt3_cython:
+	NAME = bm_unpack_sequence_opt3_cython
+
+	a. To run unpack_sequence_opt using cython
+		download cython:
+			pip install --upgrade pip setuptools wheel
+			pip install cython	
+		
+	b. Add files to bm_unpack_sequence_opt3_cython:
+		- create: setup.py 
+			from distutils.core import setup
+			from Cython.Build import cythonize
+			setup(ext_modules = cythonize("unpacking_c.pyx"))
+		- create: unpacking.pyx
+		- compile unpacking.pyx:
+			python3-dbg setup.py build_ext --inplace
+				
+3. After creating all wanted benchmarks 
+	a. Make sure you have the following programs: trash.cpp, script_unpack_sequence.sh
+	b. Run ./script_unpack_sequence.sh
+		#notice: will run all unpack_sequence benchmarks we created.
+	c. Folders with benchmarks' names will be created.
+
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ script_unpack_sequence.sh ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+What it does?
+1. Creates a python3-dbg environment
+2. Clones using git:
+	- Flamegraphs https://github.com/brendangregg/FlameGraph.git
+3. Copies relevant files from our repository to the relevant paths in pyperformance
+4. Modify max_sample_rate to match the needs
+5. Compiles trash.cpp - this program is meant to clean cache between runs in order to eliminate usage of previous information.
+6. Download cython library
+7. Runs for each benchmark (original and custom made) the following commands and saves output files in a specific folder.
+	- perf stat -r 10 -e task-clock,context-switches,page-faults,cache-references,cache-misses,cycles,instructions python3-dbg -m pyperformance run --bench $NAME
+		*note: this will give the average performance over 10 runs.
+	- perf record -F 999 -g -- python3-dbg -m pyperformance run --bench $NAME
+	- perf report --stdio > report.txt
+	- perf script | ../FlameGraph/stackcollapse-perf.pl > out.folded 
+	- creates flamegraphs
+
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ Overview ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+Description:
+	- What it does?
+		Microbenchmark for unpacking lists and tuples.
+		Unpacking is breaking down a struct into its individual elements and storing each in a separate variable.
+		The microbenchmark measures the performance of Python’s sequence unpacking operation for tuples and lists.
+		The microbenchmark is able to run each of the struct types or both of them, in our case we will measure the performance
+		of running both of them.
+		The main logic is that small fixed sequences are repeatedly unpacked in tight loops to measure raw unpacking speed,
+		first tuples then lists.
+		
+		* Test flow:
+			- Creates a tuple with numbers from 0 to 9: 
+				def bench_tuple_unpacking(loops):
+				x = tuple(range(10))
+				return do_unpacking(loops, x)
+				
+				x = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+			- Creates a list with numbers from 0 to 9:
+				def bench_list_unpacking(loops):
+				x = list(range(10))
+				return do_unpacking(loops, x)
+				
+				x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+			
+			-  Unpacks into 10 variables a through j over and over.
+				def do_unpacking(loops, to_unpack):
+					range_it = range(loops)
+					t0 = pyperf.perf_counter()
+					for _ in range_it:
+						# 400 unpackings
+						a, b, c, d, e, f, g, h, i, j = to_unpack
+						a, b, c, d, e, f, g, h, i, j = to_unpack
+						...					
+					return pyperf.perf_counter() - t0 #returns running time
+			
+	- Libraries & Modules: pyperf
+	  	The benchmark uses pyperf and its Run class.
+		Pyperf is a toolkit to write, run and analyze benchmarks. It automatically calibrates a benchmark for a time budget.
+		For that, pyperf performs a short run of the benchmark code to estimate the execution time of a single iteration,
+		based on that pyperf calculates the optimal number of outer iterations required to reach the wanted budget.
+		The budget's goal is to make each individual measurement long enough for reliable timing.
+		That means faster logic would run more iterations which makes it harder to compare the collected stats except for
+		the average time and standard deviation provided by the pyperf library itself. 
+
+	- Data structures: tuples, lists
+		Tuple — immutable fixed-size sequence used in bench_tuple_unpacking.
+				Tuple items are ordered, unchangeable, and allow duplicate values.
+				They are indexed, the first item has index [0], the second item has index [1] etc.
+				A tuple's layout in memory is a contiguous block of memory that holds references (pointers).
+				
+		List — mutable sequence used in bench_list_unpacking.
+		       List items are ordered, changeable, and allow duplicate values.
+		       They are indexed, the first item has index [0], the second item has index [1] etc.
+			   Python lists are dynamic allocated arrays and they store references (pointers) to objects, not the objects themselves, 
+			   at contiguous memory locations. This allows lists to contain elements of different types.
+
+Initial Analysis:
+	- stats:
+			### unpack_sequence ###
+			Mean +- std dev: 163 ns +- 0 ns
+
+
+			 Performance counter stats for 'python3-dbg -m pyperformance run --bench unpack_sequence' (10 runs):
+
+					  20296.70 msec task-clock                #    0.989 CPUs utilized            ( +-  0.07% )
+						  2928      context-switches          #  144.155 /sec                     ( +-  0.24% )
+						146873      page-faults               #    7.231 K/sec                    ( +-  0.00% )
+					 335622136      cache-references          #   16.524 M/sec                    ( +-  0.08% )
+					   6574767      cache-misses              #    1.964 % of all cache refs      ( +-  4.62% )
+				   52345337220      cycles                    #    2.577 GHz                      ( +-  0.06% )
+				  130543423006      instructions              #    2.49  insn per cycle           ( +-  0.00% )
+
+					   20.5152 +- 0.0124 seconds time elapsed  ( +-  0.06% )
+	
+	- Flamegraph can be found in results_unpack_sequence/flamegraph_unpack_sequence.svg
+		Note: by default, perf shows only c-level frames. That means Python functions will not show in their names.
+
+	- Bottlenecks:
+	  Most of the time in this benchmark is spent in the actual logic. 
+	  We will try to reduce the run time by reducing overhead and other approaches to keep logic run the same but in less time. 
+
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ OᑭTIᗰIZᗩTIOᑎ 1 - Pre-declare variables ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+The code:
+	  Original:		
+				def do_unpacking(loops, to_unpack):
+					range_it = range(loops)
+					t0 = pyperf.perf_counter()
+					for _ in range_it:
+					# 400 unpackings
+						a, b, c, d, e, f, g, h, i, j = to_unpack
+						a, b, c, d, e, f, g, h, i, j = to_unpack
+						...
+	  
+	  New:			
+				def do_unpacking(loops, to_unpack):
+					range_it = range(loops)
+					t0 = pyperf.perf_counter()
+					a = b = c = d = e = f = g = h = i = j = None
+					for _ in range_it:
+					# 400 unpackings
+						a, b, c, d, e, f, g, h, i, j = to_unpack
+						a, b, c, d, e, f, g, h, i, j = to_unpack
+						...
+Description:
+	- What it does?
+	  Optimizes the code by eliminating the need to create new local variables each iteration. 
+	  Python interpreter stores locals in an array-like structure, but they still need to be initialized before use.
+	  If initialized outside the loop, the interpreter knows they exist and can directly reuse the same slots on each iteration.
+	  On the other hand, if variables are only assigned inside the loop without prior initialization, the interpreter must check and 
+	  create them at every iteration which causes overhead.
+ 
+	- Libraries & Modules: same as before.
+
+Analysis:
+	- Stats:
+		### unpack_sequence ###
+		Mean +- std dev: 164 ns +- 1 ns
+
+		 Performance counter stats for 'python3-dbg -m pyperformance run --bench unpack_sequence_opt1' (10 runs):
+
+				  20343.93 msec task-clock                #    0.991 CPUs utilized            ( +-  0.04% )
+					  2938      context-switches          #  144.588 /sec                     ( +-  0.11% )
+					146885      page-faults               #    7.229 K/sec                    ( +-  0.00% )
+				 336652014      cache-references          #   16.568 M/sec                    ( +-  0.08% )
+				   6641827      cache-misses              #    1.976 % of all cache refs      ( +-  1.23% )
+			   52438901376      cycles                    #    2.581 GHz                      ( +-  0.03% )
+			  130558543413      instructions              #    2.49  insn per cycle           ( +-  0.00% )
+
+				   20.5255 +- 0.0101 seconds time elapsed  ( +-  0.05% )
+				   
+	- Flamegraph can be found in results_unpack_sequence_opt1/flamegraph_unpack_sequence_opt1.svg
+	
+	- Comparison:
+	  All gained statistics are about the same, showing no meaningful improvement between the two runs. 
+
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ OᑭTIᗰIZᗩTIOᑎ 2 - Inline Function Call ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+The code:
+		Original:
+				def bench_tuple_unpacking(loops):
+					x = tuple(range(10))
+					return do_unpacking(loops, x)
+
+
+				def bench_list_unpacking(loops):
+					x = list(range(10))
+
+					return do_unpacking(loops, x)
+
+
+				def bench_all(loops):
+					dt1 = bench_tuple_unpacking(loops)
+					dt2 = bench_list_unpacking(loops)
+					return dt1 + dt2
+			
+		New:
+				def bench_tuple_unpacking(loops):
+					x = tuple(range(10))
+					return do_unpacking(loops, x)
+
+
+				def bench_list_unpacking(loops):
+					x = list(range(10))
+					return do_unpacking(loops, x)
+
+
+				def bench_all(loops):
+					return do_unpacking(loops, tuple(range(10))) + do_unpacking(loops, list(range(10)))
+
+
+Description:
+	- What it does?
+		Reducing function call overhead, by eliminating the need to call the bench_tuple_unpacking and the bench_list_unpacking functions.
+		We attempt to save overhead time of performing pre and post function call procedures.
+	
+	- Libraries & Modules: same as before.
+
+Analysis:
+	- Stats:
+		### unpack_sequence ###
+		Mean +- std dev: 163 ns +- 0 ns
+
+
+		 Performance counter stats for 'python3-dbg -m pyperformance run --bench unpack_sequence_opt2' (10 runs):
+
+				  20278.86 msec task-clock                #    0.988 CPUs utilized            ( +-  0.05% )
+					  2919      context-switches          #  143.668 /sec                     ( +-  0.13% )
+					146924      page-faults               #    7.231 K/sec                    ( +-  0.00% )
+				 334901384      cache-references          #   16.483 M/sec                    ( +-  0.08% )
+				   6757149      cache-misses              #    2.012 % of all cache refs      ( +-  0.73% )
+			   52338390958      cycles                    #    2.576 GHz                      ( +-  0.04% )
+			  130541088926      instructions              #    2.49  insn per cycle           ( +-  0.00% )
+
+				   20.5283 +- 0.0124 seconds time elapsed  ( +-  0.06% )
+				   
+				   
+	- Flamegraph can be found in results_unpack_sequence_opt2/flamegraph_unpack_sequence_opt2.svg
+	
+	- Comparison:
+	  All gained statistics are about the same, showing no meaningful improvement between the two runs. 
+
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ OᑭTIᗰIZᗩTIOᑎ 3 - CYTHON ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+The code:
+	Original:
+			def do_unpacking(loops, to_unpack):
+				range_it = range(loops)
+				t0 = pyperf.perf_counter()
+
+				for _ in range_it:
+					# 400 unpackings
+					a, b, c, d, e, f, g, h, i, j = to_unpack
+					a, b, c, d, e, f, g, h, i, j = to_unpack
+					...
+					return pyperf.perf_counter() - t0
+	New:
+		run_benchmark.py:
+			import pyperf
+			from unpacking import do_unpacking_cython
+
+			def do_unpacking(loops, to_unpack):
+				range_it = range(loops)
+				t0 = pyperf.perf_counter()
+				do_unpacking_cython(loops, to_unpack)
+				return pyperf.perf_counter() - t0
+		
+		unpacking.pyx
+			cimport cython
+			from cpython.tuple cimport PyTuple_CheckExact, PyTuple_GET_SIZE, PyTuple_GET_ITEM
+			from cpython.list  cimport PyList_CheckExact,  PyList_GET_SIZE,  PyList_GET_ITEM
+			from cpython.ref   cimport PyObject
+
+			@cython.boundscheck(False)
+			@cython.wraparound(False)
+			def do_unpacking_cython(int loops, object to_unpack):
+				cdef Py_ssize_t ii, k
+				cdef Py_ssize_t n
+				cdef object a, b, c, d, e, f, g, h, i, j
+			
+			...
+
+		setup.py
+			from distutils.core import setup
+			from Cython.Build import cythonize
+
+			setup(ext_modules = cythonize("unpacking.pyx"))
+
+Description:
+	- What it does?
+		By applying Cython to the memory-access–heavy portions of the program, Python execution speed can be 
+		improved through reduced interpreter overhead. The resulting compiled library integrates smoothly with Python code.
+	
+	- Libraries & Modules:
+		In addition to PyPerf, we will also use cython library.
+		Cython:
+			Cython translates Python-like code into C that will later be compiled and wrapped in interface code (wrapper library -
+			translates a library's existing interface into a compatible interface).
+			We were able to write parts of the program, that hindered the performance of the original code, in Cython and leave the rest in plain Python for readability 
+			and flexibility. Since Cython modules compile into standard Python extensions, they can be imported just like any other library.
+			
+			This means that instead of relying on Python’s interpreter, the code runs much closer to the hardware using the c-compiled code that we know and love, 
+			with far less overhead. The result is often a big speed-up, especially in sections of code that are heavy on loops, numerical operations, or frequent 
+			function calls. Overall, Cython enables developers to write performance-critical parts of a program in Cython that will integrate into regular Python. 
+			This combines the performance of c code and the convenience of Python. 
+			 
+
+Analysis:
+	- Stats:
+		### unpack_sequence ###
+		Mean +- std dev: 93.8 ns +- 0.4 ns
+
+		 Performance counter stats for 'python3-dbg -m pyperformance run --bench unpack_sequence_opt3_cython' (10 runs):
+
+				  21740.61 msec task-clock                #    0.988 CPUs utilized            ( +-  0.07% )
+					  2868      context-switches          #  131.604 /sec                     ( +-  0.19% )
+					137320      page-faults               #    6.301 K/sec                    ( +-  0.00% )
+				 331179108      cache-references          #   15.197 M/sec                    ( +-  0.07% )
+				   6548378      cache-misses              #    1.969 % of all cache refs      ( +-  6.79% )
+			   56133956124      cycles                    #    2.576 GHz                      ( +-  0.07% )
+			  100612514028      instructions              #    1.79  insn per cycle           ( +-  0.00% )
+
+				   22.0020 +- 0.0160 seconds time elapsed  ( +-  0.07% )
+				   
+	- Flamegraph can be found in results_unpack_sequence_opt3_cython/flamegraph_unpack_sequence_opt3_cython.svg
+		*note: in this case, since cython is compiled and runs on the hardware directly, we were able to see the exact running time and duration of 
+			   the unpacking function in our program. 
+			   
+	- Comparison:
+		The Cython implementation reduced the average runtime by approximately 42.5%.
+			
+			
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ Hardware Acceleration Proposals ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+After reviewing the code, we identified that the main bottleneck lies in the unpacking of tuples and lists. To address this, we chose to accelerate the sequence unpacking itself. 
+We explored the possibility of using vectorization in Python, but since the interpreter does not support it, we decided instead to design a dedicated hardware unit. This unit transforms a 
+sequence into an array of elements, which can then be assigned to variables efficiently, with the option of applying vectorization at the C/Cython level. In this benchmark, both lists and 
+tuples behave like arrays of integers. The code simply takes each element and assigns it to a separate variable repeatedly. 
+
+- Inputs and outputs:
+	* Input:
+		A pointer to the Python object (tuple or list) and its size.
+		In our case - list or tuple with 10 elements.
+			*note: we will check what is the type of the object we get and handle it accordingly.
+	* Output:
+		An array of object references that can be mapped directly to local variables.
+		In our case - an array with 10 elements.
+
+- Hardware/software interface:
+	We propose adding a custom opcode to redirect unpacking operations to the specialized hardware. When Python executes an `UNPACK_SEQUENCE`, the interpreter would issue a 
+	call to the unit instead of unpacking sequentially. This requires extending CPython with an API to delegate operations to the hardware module.
+
+	*Flow:
+		1. The Python interpreter encounters the unpack operation.
+		2. It issues the special opcode, triggering the hardware unit.
+		3. The hardware unit unpacks the sequence into an array of references.
+		4. The array is returned to the interpreter and mapped to the target variables.
+		
+- Acceleration justification: 
+	- Current unpacking is O(n) with high interpreter overhead.
+	- The specialized unit can fetch multiple elements at once:
+			*Performing a parallel load of 10 pointers
+			*Reducing the need for repeated pointer dereferences and reference count operations which happens in python.
+	
+- Expected performance:
+	Fewer calls through the Python C API and less branching overall.
+	Instead of performing 10 separate operations, we reduce it to essentially one large call.
+	While there is some additional overhead from invoking the hardware unit, the effect should be a speedup in the range of 2-5x depending on sequence size.
+ 
+- Block diagram:
+	
+			  +-----------------------------------+
+			  |       Python Interpreter          |
+			  +-----------------+-----------------+
+								|
+		  [1] Encounter UNPACK_SEQUENCE operation
+								|
+								v
+			  +-----------------------------------+
+			  |   		 Special Opcode 	      |
+			  +-----------------+-----------------+
+								|
+		  [2] Delegate to hardware specialized unit
+								|
+								v
+	-------------------------------------------------------------
+	|             			New Unit   							|	
+	|    [3] unpacks the sequence into an array of references  	|
+	|                                                   		|	*Type Decoder: determines if object is a tuple or list.
+	|	   +--------------+   		  +-----------------+      	|	*Bounds Checker: ensures correct size for unpacking.	
+	|	   | Type Decoder |---------->| Bounds Checker  |      	|	*Indexing: generates indexing for the sequence.
+	|	   | (list/tuple) |   		  | (validate size) |       |	*Parallel Load: fetches all object pointers in one step.
+	|	   +--------------+   		  +-----------------+       |	*Refcount Manager: updates reference counts.
+	|	            |                         |             	|
+	|	            v                         v             	|
+	|	   +-----------------+     +---------------------+  	|
+	|	   | Indexing 		 |---->| Parallel Load Unit  |		|
+	|	   |		         |     | 				     |  	|
+	|	   +-----------------+     +---------------------+  	|
+	|										|					|
+	|										v					|
+	|	  						   +-------------------+        |
+	|	 						   | Refcount Manager  |		|
+	|	  						   | 				   |        |               
+	|	  						   +-------------------+  		|
+	|                                                   		|
+	|             Output: array of references           		|
+	-------------------------------------------------------------
+								|
+		  [4] Return array of object references
+								|
+								v
+			  +-----------------------------------+
+			  |   Python Interpreter 		      |
+			  |   Assigns refs to local vars      |
+			  +-----------------------------------+
+
+- Performance/area/power trade-offs: 
+	The unit will be valuable in cases of large number of sequences of the same type that need to be unpacked, like in the benchmark's case. 
+	Naturally, this specialized unit will increase power consumption during the unpacking operation and will take up additional area on the chip.
+	On the other hand, operations will complete much faster which we assume will reduce the total energy used per operation. That fact will balance the power trade-off. 
+
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ Conclusion ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+Overall, the majority of the optimizations we applied showed minimal impact on performance. 
+From our understanding, this is due to the fact that most of the run time is spent doing the actual unpacking logic and not 
+other required operations (which we can refer to as overhead), hence why micro-optimizations don't seem to have a larger impact.
+However, the Cython implementation yielded a notable improvement, reducing the average runtime by approximately 42.5%.
+- Since pyperf calibrates the number of loop iterations, our cython custom benchmark ended up executing twice as many loops than the other 
+	   unpack_sequence benchmarks. This difference in calibration influences the collected statistics (other than the pyperf's built in mean time and 
+	   std error)and may skew comparisons with other benchmarks. 
+	   In this case, the original benchmark ran 2048 loops while unpack_sequence_opt3_cython ran 4096.
+	   
+	   
+Thanks For Reading!
+Shachar & Sahar
+	⣀⡤⢤⣄⠀⣠⡤⣤⡀⠀⠀⠀
+⠀⠀⢀⣴⢫⠞⠛⠾⠺⠟⠛⢦⢻⣆⠀⠀
+⠀⠀⣼⢇⣻⡀⠀⠀⠀⠀⠀⠀⢸⡇⢿⣆⠀
+⠀⢸⣯⢦⣽⣷⣄⡀⠀⢀⣴⣿⣳⣬⣿⠀
+⢠⡞⢩⣿⠋⠙⠳⣽⢾⣯⠛⠙⢹⣯⠘⣷
+⠀⠈⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠋⠁⠀⠀

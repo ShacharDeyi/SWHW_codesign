@@ -1,0 +1,532 @@
+							
+			(¯`*•.¸,¤°´✿.｡.:* "" *.:｡.✿`°¤,¸.•*´¯)
+     _ ____   ___  _   _     ____  _   _ __  __ ____  ____  
+    | / ___| / _ \| \ | |   |  _ \| | | |  \/  |  _ \/ ___| 
+ _  | \___ \| | | |  \| |   | | | | | | | |\/| | |_) \___ \ 
+| |_| |___) | |_| | |\  |   | |_| | |_| | |  | |  __/ ___) |
+ \___/|____/ \___/|_| \_|___|____/ \___/|_|  |_|_|   |____/ 
+                       |_____|                             
+In this project we chose to optimize the benchmark of 𝐣𝐬𝐨𝐧_𝐝𝐮𝐦𝐩𝐬.
+
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ Environment & Custom Benchmarks ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+1. create python3-dbg env
+	a. sudo apt install python3.10-venv
+	b. python3-dbg -m venv venv-dbg
+	c. source venv-dbg/bin/activate
+	d. pip install --upgrade pip
+	e. pip install pyperformance
+	f. pip install git+https://github.com/python/pyperformance.git
+	g. git clone https://github.com/python/pyperformance.git
+	h. cd pyperformance
+	i. pip install -e .
+	
+2. For each benchmark we created a custom benchmark:
+	a. ${NAME} == name of benchmark
+	b. cd pyperformance/benchmark
+	c. nano MANIFEST -> add the line: ${NAME}	<local>
+	d. cp -r bm_${original_name} bm_${NAME}
+	e. cd bm_${NAME}
+	f. Edit run_benchmark.py to your needs
+	g. Edit pyproject.toml to match ${NAME}:
+		[project]
+		name = "pyperformance_bm_${NAME}"
+		requires-python = ">=3.8"
+		dependencies = ["pyperf"]
+		urls = {repository = "https://github.com/python/pyperformance"}
+		dynamic = ["version"]
+
+		[tool.pyperformance]
+		name = "${NAME}"
+		
+Specific setup for json_dumps_opt2_ujson & json_dumps_opt3_orjson:
+	NAME = json_dumps_opt2_ujson
+	NAME = json_dumps_opt3_orjson
+
+	a. To json_dumps_opt2_ujson using ujson
+		download ujson
+		*notice: pyperf creates new env when running, it is need to make sure the ujson is downloaded there
+				/root/pyperformance/venv/cpython3.10-*/bin/python -m pip install ujson
+
+	b. To json_dumps_opt3_orjson using orjson
+		download orjson
+		*notice: pyperf creates new env when running, it is need to make sure the orjson is downloaded there
+				/root/pyperformance/venv/cpython3.10-*/bin/python -m pip install orjson	
+
+3. After creating all wanted benchmarks 
+	a. make sure you have the following programs: trash.cpp, script_json_dumps.sh
+	b. run ./script_json_dumps.sh
+			#notice: will run all json_dumps benchmarks we created.
+	c. folders with benchmarks' names will be created.
+
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ script_json_dumps.sh ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+What it does?
+1. Creates a python3-dbg environment
+2. Clones using git:
+	- our repository https://github.com/ShacharDeyi/SWHW_codesign
+	- Flamegraphs https://github.com/brendangregg/FlameGraph.git
+3. Copies relevant files from our repository to the relevant paths in pyperformance
+4. Modify max_sample_rate to match the needs
+5. Compiles trash.cpp - this program is meant to clean cache between runs in order to eliminate usage of previous information.
+6. Checks if there is a pyperf virtual environment, if not - creates it and installs ujson and orjson. 
+7. Runs for each benchmark (original and custom made) the following commands and saves output files in a specific folder.
+	- perf stat -r 10 -e task-clock,context-switches,page-faults,cache-references,cache-misses,cycles,instructions python3-dbg -m pyperformance run --bench $NAME
+		*note: this will give the average performance over 10 runs.
+	- perf record -F 999 -g -- python3-dbg -m pyperformance run --bench $NAME
+	- perf report --stdio > report.txt
+	- perf script | ../FlameGraph/stackcollapse-perf.pl > out.folded 
+	- creates flamegraphs
+	
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ Overview ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+Description:
+	- What it does?
+		* JSON
+			JSON (JavaScript Object Notation) is a commonly used format that uses human-readable format text to store and transmit 
+			data. It uses key-value pairs and serializable values. It is used in many applications, and different code languages
+			have a built-in library to deal and parse JSON format, meaning it is language independent data format. 
+			- Example: (from Wikipedia - JSON)
+				{
+				  "first_name": "John",
+				  "last_name": "Smith",
+				  "is_alive": true,
+				  "age": 27,
+				  "address": {
+					"street_address": "21 2nd Street",
+					"city": "New York",
+					"state": "NY",
+					"postal_code": "10021-3100"
+				  },
+				  "phone_numbers": [
+					{
+					  "type": "home",
+					  "number": "212 555-1234"
+					},
+					{
+					  "type": "office",
+					  "number": "646 555-4567"
+					}
+				  ],
+				  "children": [
+					"Catherine",
+					"Thomas",
+					"Trevor"
+				  ],
+				  "spouse": null
+				}
+			
+		* dumps
+			json_dumps microbenchmark uses the function json.dumps() from json module in Python (see below). 
+			The function is used to serialize a Python object into a string formatted in JSON, this procedure is 
+			also known as serialization (in contrast to json.loads() - deserialization). 
+			This functionality is meant to take an object and convert it into a serialized format that can be
+			transmitted over a network. 
+			In this microbenchmark, different data structures are serialized and the time it takes to do so is measured.
+			Using json module the function json.dumps's output is a str (Unicode text).
+		
+		*Example of serialization: (from https://www.geeksforgeeks.org/python/json-dumps-in-python/)
+			import json
+
+			# Creating a dictionary
+			Dictionary = {1: 'Welcome', 2: 'to', 3: 'Geeks', 4: 'for', 5: 'Geeks'}
+
+			# Convert the dictionary to a JSON string
+			json_string = json.dumps(Dictionary)
+			print('Equivalent JSON string of dictionary:', json_string)
+			print(type(json_string))
+			
+			Output:
+			Equivalent json string of dictionary: {"1": "Welcome", "2": "to", "3": "Geeks", "4": "for", "5": "Geeks"} 
+			<class 'str'>
+		
+		* Test flow:
+			- Dataset:
+				EMPTY = ({}, 2000)
+				SIMPLE_DATA = {'key1': 0, 'key2': True, 'key3': 'value', 'key4': 'foo',
+							   'key5': 'string'}
+				SIMPLE = (SIMPLE_DATA, 1000)
+				NESTED_DATA = {'key1': 0, 'key2': SIMPLE[0], 'key3': 'value', 'key4': SIMPLE[0],
+							   'key5': SIMPLE[0], 'key': '\u0105\u0107\u017c'}
+				NESTED = (NESTED_DATA, 1000)
+				HUGE = ([NESTED[0]] * 1000, 1)
+
+				CASES = ['EMPTY', 'SIMPLE', 'NESTED', 'HUGE']
+				
+			- main:
+				data = []
+				for case in CASES:
+					obj, count = globals()[case] 		#obj = dictionary/list, count - the number
+					data.append((obj, range(count)))	#data is a list of tuples, each tuple has the dataset object and a range
+			
+				runner.bench_func('json_dumps', bench_json_dumps, data)
+				
+			- bench_json_dumps:
+				def bench_json_dumps(data):
+						for obj, count_it in data:
+							for _ in count_it:
+								json.dumps(obj) #serialization of each object in data
+		
+	- Libraries & Modules:
+		pyperf:
+		The benchmark uses pyperf and its Runner class.
+		Pyperf is a toolkit to write, run and analyze benchmarks. It automatically calibrates a benchmark for a time budget.
+		For that, pyperf performs a short run of the benchmark code to estimate the execution time of a single iteration,
+		based on that pyperf calculates the optimal number of outer iterations required to reach the wanted budget.
+		The budget's goal is to make each individual measurement long enough for reliable timing.
+		That means faster logic would run more iterations which makes it harder to compare the collected stats except for
+		the average time and standard deviation provided by the pyperf library itself. 
+		
+		json:
+		json is part of Python's standard library. 
+		It provides functionality to work with JSON format via Python code. This module is implemented in Python and C.
+		- json.dumps: 
+			A lot of the functionality is implemented in Python and only some inner loops are in c. 
+		
+	- Data structures:
+		Tuple — immutable fixed-size sequence used in bench_tuple_unpacking.
+				Tuple items are ordered, unchangeable, and allow duplicate values.
+				They are indexed, the first item has index [0], the second item has index [1] et
+				
+		List — mutable sequence used in bench_list_unpacking.
+		       List items are ordered, changeable, and allow duplicate values.
+		       They are indexed, the first item has index [0], the second item has index [1] etc.
+		
+		Dictionary - 
+			Dictionary items are ordered, changeable, and do not allow duplicates.
+			They are presented in key:value pairs, and can be referred to by using the key name
+			
+		String - 
+			Strings in Python are arrays of unicode characters.
+			Python does not have a character data type, a single character is simply a string with a length of 1.
+
+		
+Initial Analysis
+	- Stats:
+			### json_dumps ###
+			Mean +- std dev: 60.4 ms +- 1.0 ms
+
+
+			 Performance counter stats for 'python3-dbg -m pyperformance run --bench json_dumps' (10 runs):
+
+					  18901.86 msec task-clock                #    0.989 CPUs utilized            ( +-  0.04% )
+						  2874      context-switches          #  152.090 /sec                     ( +-  0.17% )
+						235469      page-faults               #   12.461 K/sec                    ( +-  0.02% )
+					 390145065      cache-references          #   20.646 M/sec                    ( +-  0.07% )
+					   6306146      cache-misses              #    1.612 % of all cache refs      ( +-  0.89% )
+				   48754592819      cycles                    #    2.580 GHz                      ( +-  0.04% )
+				   93049678381      instructions              #    1.91  insn per cycle           ( +-  0.01% )
+
+					  19.11638 +- 0.00935 seconds time elapsed  ( +-  0.05% )
+					  
+	- Flamegraph can be found in results_json_dumps/flamegraph_json_dumps.svg
+		Note: by default, perf shows only c-level frames. That means Python functions will not show in their names.
+		
+	- Bottlenecks
+		Most of the time in this benchmark is spent in the actual logic of the serialization. 
+		We will try to reduce the run time by reducing overhead and other approaches to keep logic run the same but in less time.
+		
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ OᑭTIᗰIZᗩTIOᑎ 1 - Local Variable Binding ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+The code:
+	  Original:		
+				def bench_json_dumps(data):
+					for obj, count_it in data:
+						for _ in count_it:
+							json.dumps(obj)
+
+	  
+	  New:			
+				def bench_json_dumps(data):
+					dumps = json.dumps()
+					for obj, count_it in data:
+						for _ in count_it:
+							dumps(obj)
+						
+Description:
+	- What it does?
+		By storing the reference to the function once outside the loop, we avoid repeated global name 
+		lookups of json.dumps inside the inner loop by caching it in a local variable.
+		This direct local variable lookup is significantly faster, with a lot of iteration we are
+		supposed to save running time. 
+		
+	- Libraries & Modules: same as before.
+
+Analysis
+	- Stats:
+			### json_dumps ###
+			Mean +- std dev: 60.0 ms +- 0.8 ms
+
+
+			 Performance counter stats for 'python3-dbg -m pyperformance run --bench json_dumps_opt1' (10 runs):
+
+					  18866.84 msec task-clock                #    0.988 CPUs utilized            ( +-  0.07% )
+						  2884      context-switches          #  152.828 /sec                     ( +-  0.13% )
+						235866      page-faults               #   12.499 K/sec                    ( +-  0.01% )
+					 391253745      cache-references          #   20.733 M/sec                    ( +-  0.09% )
+					   6835664      cache-misses              #    1.747 % of all cache refs      ( +-  2.23% )
+				   48627787757      cycles                    #    2.577 GHz                      ( +-  0.07% )
+				   92704123828      instructions              #    1.91  insn per cycle           ( +-  0.01% )
+
+					   19.0901 +- 0.0146 seconds time elapsed  ( +-  0.08% )
+					   
+	- Flamegraph can be found in results_json_dumps_opt1/flamegraph_json_dumps_opt1.svg
+	
+	- Comparison:
+	  All gained statistics are about the same, showing no meaningful improvement between the two runs. 
+
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ OᑭTIᗰIZᗩTIOᑎ 2 - ᑌᒍSOᑎ ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+The code:
+	  Original:		
+				def bench_json_dumps(data):
+					for obj, count_it in data:
+						for _ in count_it:
+							json.dumps(obj)
+
+	  
+	  New:			
+				def bench_json_dumps(data):
+					for obj, count_it in data:
+						for _ in count_it:
+							ujson.dumps(obj)
+							
+Description:
+	- What it does?
+		When using the ujson library, the output of dumps() is a str (Unicode text), like Python’s built-in json.dumps. However, ujson
+		is not fully compliant with the JSON specification, which means that in certain edge cases it can produce slightly different results. 
+		For most of our inputs, serialization will behave the same as the standard json module. For the NESTED input, there may be minor differences, 
+		and for the HUGE input the deviations could be more noticeable. In these cases, the small inaccuracies are a trade-off for the significant 
+		performance improvement that we get.
+
+	
+	- Libraries & Modules:
+		Instead of using the json in the standard Python library, we use the library ujson.
+		
+		ujson:
+		ujson is implemented in pure C, which gives it a big performance advantage. It is said to run about two to five times faster than 
+		Python’s built-in json module. 
+		While it isn’t fully compliant with every detail of the JSON specification, it’s designed with a clear focus on reducing overhead and 
+		keeping parsing as fast as possible. Like the standard module, it returns a string when serializing, so it can be used as an exact 
+		replacement in many cases. Best for speed-critical code where strict compliance is not required.	
+		- ujson.dumps()
+			Implements encoding in C or C++ with tight loops (minimal overhead and work on contiguous memory) and less Python interaction.
+			
+Analysis
+	- Stats:
+			### json_dumps ###
+			Mean +- std dev: 36.1 ms +- 0.7 ms
+
+
+			 Performance counter stats for 'python3-dbg -m pyperformance run --bench json_dumps_opt2_ujson' (10 runs):
+
+					  20991.35 msec task-clock                #    0.991 CPUs utilized            ( +-  0.11% )
+						  2892      context-switches          #  137.966 /sec                     ( +-  0.16% )
+						144531      page-faults               #    6.895 K/sec                    ( +-  0.00% )
+					 354464666      cache-references          #   16.910 M/sec                    ( +-  0.06% )
+					   6771290      cache-misses              #    1.910 % of all cache refs      ( +-  7.33% )
+				   54130514759      cycles                    #    2.582 GHz                      ( +-  0.10% )
+				  108106022288      instructions              #    2.00  insn per cycle           ( +-  0.04% )
+
+					   21.1751 +- 0.0183 seconds time elapsed  ( +-  0.09% )
+					   
+	- Flamegraph can be found in results_json_dumps_opt2_ujson/flamegraph_json_dumps_opt2_ujson.svg
+	
+	- Comparison:
+	  Notable improvement in most stats, using ujson.dumps() showed an improvement of ~39.8% in the mean running time.
+
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ OᑭTIᗰIZᗩTIOᑎ 3 - OᖇᒍSOᑎ ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+The code:
+	  Original:		
+				def bench_json_dumps(data):
+					for obj, count_it in data:
+						for _ in count_it:
+							json.dumps(obj)
+
+	  New using string:			
+				def bench_json_dumps(data):
+					for obj, count_it in data:
+						for _ in count_it:
+							orjson.dumps(obj).decode("utf-8") #a method used to convert a bytes object (binary data) into a str object (usually text).
+				
+	  New using bytes:			
+				def bench_json_dumps(data):
+					for obj, count_it in data:
+						for _ in count_it:
+							orjson.dumps(obj)
+											
+Description:
+
+	- What it does?
+		The orjson library returns output as bytes, which can be converted to a str if needed. It is fully compliant with the JSON specification, so the results it produces
+		are completely reliable. If a str output is required, the bytes can be decoded, but doing so reduces some of the performance advantage of orjson.
+	
+	- Libraries & Modules:
+		Instead of using the json in the standard Python library, we use the library orjson.
+		
+		orjson:
+		orjson is written in Rust, which gives it both speed and safety advantages. 
+		It’s considered one of the fastest JSON libraries available for Python, said to reach performance gains of around ten times compared to the built-in json module. 
+		It is fully compliant with the JSON specification, ensuring reliability in production systems. 
+		Altogether, it is the best choice performance without sacrificing full compliance.
+		- orjson.dumps()
+			Written in Rust on top of serde. Serde is a framework specifically designed for serializing and deserializing Rust data structures.
+			For efficiency, the function returns bytes instead of strings during serialization, which makes the process faster and more memory friendly. 
+			*Python's str type holds the abstract Unicode characters. It does not store them in a specific byte encoding like UTF-8 internally.
+			 UTF-8 (Unicode Transformation Format) is a variable-length character encoding standard that represents any Unicode character using 1 to 4 bytes.
+			 
+Analysis:
+
+	- Stats using string:
+			 ### json_dumps ###
+			Mean +- std dev: 9.98 ms +- 0.21 ms
+
+
+			 Performance counter stats for 'python3-dbg -m pyperformance run --bench json_dumps_opt3_orjson_str' (10 runs):
+
+					  22654.44 msec task-clock                #    0.986 CPUs utilized            ( +-  0.05% )
+						  3003      context-switches          #  133.140 /sec                     ( +-  0.14% )
+						536678      page-faults               #   23.794 K/sec                    ( +-  0.00% )
+					 519214010      cache-references          #   23.020 M/sec                    ( +-  0.06% )
+					   7047160      cache-misses              #    1.357 % of all cache refs      ( +-  1.68% )
+				   58493621793      cycles                    #    2.593 GHz                      ( +-  0.06% )
+				  119068598981      instructions              #    2.05  insn per cycle           ( +-  0.01% )
+
+					   22.9760 +- 0.0209 seconds time elapsed  ( +-  0.09% )
+					   
+	- Flamegraph can be found in results_json_dumps_opt3_orjson_str/flamegraph_json_dumps_opt3_orjson_str.svg
+		*Note: in this case, since orjson is using compiled language and runs on the hardware directly, 
+			   we were able to see the exact running time and duration of the dumps function in our program. 	
+	
+	- Comparison:
+      Minor improvement in some stats, using orjson and converting to string instead of ujson showed an improvement of ~72.4% in the mean running time improvement in all stats
+			   
+	- Stats using bytes:
+			### json_dumps ###
+			Mean +- std dev: 3.60 ms +- 0.11 ms
+
+
+			 Performance counter stats for 'python3-dbg -m pyperformance run --bench json_dumps_opt3_orjson' (10 runs):
+
+					  19008.42 msec task-clock                #    0.977 CPUs utilized            ( +-  0.07% )
+						  2989      context-switches          #  157.233 /sec                     ( +-  0.17% )
+						149426      page-faults               #    7.860 K/sec                    ( +-  0.00% )
+					 428354189      cache-references          #   22.533 M/sec                    ( +-  0.05% )
+					   7199372      cache-misses              #    1.677 % of all cache refs      ( +-  1.19% )
+				   49024016824      cycles                    #    2.579 GHz                      ( +-  0.07% )
+				  100407250588      instructions              #    2.05  insn per cycle           ( +-  0.01% )
+
+					   19.4626 +- 0.0157 seconds time elapsed  ( +-  0.08% )
+					   
+	- Flamegraph can be found in results_json_dumps_opt3_orjson/flamegraph_json_dumps_opt3_orjson.svg
+		*Note: in this case, since orjson is using compiled language and runs on the hardware directly, 
+			   we were able to see the exact running time and duration of the dumps function in our program. 
+	
+	- Comparison:
+      Some improvement in some stats, using orjson instead of ujson showed an improvement of ~90% in the mean running time improvement in all stats
+ 
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ Hardware Acceleration Proposal ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+After reviewing the code, we found that the main performance bottleneck comes from the serialization of the data structures. 
+Since orjson already handles serialization very efficiently (up to a 90% speedup compared to the standard library), we decided 
+the best thing we could do is to build on top of its implementation rather than reinvent it.
+One disadvantage of orjson is that it returns the result in bytes rather than a Python string. As we saw, converting these bytes 
+back into a string can take up to three times longer than the serialization itself.
+For this reason, we propose designing a hardware acceleration around the conversion from bytes to strings, which would directly deal with this overhead.
+After further investigation, we saw there are some works that address the same topic since this conversion is done in many implementations. 
+
+- Inputs and outputs:
+	* Input:
+		Pointer to UTF-8 encoded JSON bytes buffer as the output of the orjson and it's length.
+
+	* Output:
+		Reference to a Python str object containing the decoded Unicode characters.
+
+- Hardware/software interface:
+	We propose adding a custom opcode to redirect decoding to the specialized hardware. When Python executes an `DECODE_UTFSTR`, the interpreter would issue a 
+	call to the unit. This requires extending Python's interpreter with an API to delegate operations to the hardware module.
+	
+	*Flow:
+		1. The Python interpreter encounters the unpack operation.
+		2. It issues the special opcode, triggering the hardware unit.
+		3. The hardware unit translate from UTF-8 to Python's str.
+		4. The reference to the string format is returned to the interpreter and can be used.
+				
+- Acceleration justification: 
+	- Software UTF-8 decoding uses many branches and is a CPU intensive operation overall.
+	- Although ASCII-only JSON, like we have in this case, is easy to convert in software. 
+	  We saw how much it effects the running time overall especially compared to how fast orjson.dumps() is. 
+
+- Expected performance:
+	Based on the difference we saw with and without the conversion and on other solutions we saw online,
+	we expect hardware decoding to be several times faster than Python’s software .decode('utf-8') and 
+	other implementations in ujson/orjson libraries. 
+
+- Block diagram:
+										
+		+------------------------------+   \
+		|     orjson.dumps()           | 	|	
+		|  Serialization to UTF-8      | 	|
+		|  (returns bytes buffer)      | 	|
+		+--------------+---------------+ 	|
+						|				 	| --> In the Python script
+						v					|
+		+------------------------------+	|
+		|     	  Python Code          |	|
+		+--------------+---------------+	|
+						|				   /
+						v			    
+		+-----------------------------+
+		|     Python Interpreter      |
+		+-----------------+-----------+		
+						|
+	[1] Encounter DECODE_UTFSTR operation
+						|
+						v
+		+-----------------------------+
+		|      Special Opcode         |
+		+-----------------+-----------+
+						|
+	[2] Delegate to hardware specialized unit
+						|
+						v					
+		+------------------------------+
+		| UTF8-STR Accelerator:		   |
+		|  - Bulk UTF-8 Decoder        | *Reads the finished JSON bytes buffer.
+		|  - Unicode Builder 		   | *Gives the unique identifier assigned to every character in the Unicode.
+		|  - Python str Constructor    | *Builds a proper Python str object from the decoded data and returns a reference.
+		|							   |
+		+--------------+---------------+
+						|
+		[3] Returns reference to str format
+						v
+		+------------------------------+
+		|   Python Interpreter 		   |
+		+------------------------------+
+
+- Performance/area/power trade-offs: 
+	The unit will be valuable in cases of large structs to convert. 
+	Naturally, this specialized unit will take up additional area on the chip and will increase power consumption during the operation. 
+	However, since converting is such a CPU intensive operation we assume it will use far less energy than a CPU doing the same work as it 
+	designed specifically to do this work. 
+
+✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ Conclusion ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
+Overall, orjson is a very fast library for working with JSON in Python.
+In our tests, using its dumps() function (without converting to string), lead to an improvement of ~94% in the mean running time compared to the original json module.
+The fact that Python offers at least three different JSON libraries highlights both how important this format is and how much effort has gone into making it efficient.
+It also shows why looking at existing solutions matters. By learning from prior work, we can choose and adapt the best approach for our own needs.
+
+In conclusion, using orjson leads to a significant improvement in runtime. Since we are only measuring the time it takes to serialize the data, the default byte output from
+orjson is sufficient. If we want a drop-in replacement that returns a string, we can decode the bytes, and even then the performance remains much better than the original code.
+
+
+Thanks For Reading!
+Shachar & Sahar
+	⣀⡤⢤⣄⠀⣠⡤⣤⡀⠀⠀⠀
+⠀⠀⢀⣴⢫⠞⠛⠾⠺⠟⠛⢦⢻⣆⠀⠀
+⠀⠀⣼⢇⣻⡀⠀⠀⠀⠀⠀⠀⢸⡇⢿⣆⠀
+⠀⢸⣯⢦⣽⣷⣄⡀⠀⢀⣴⣿⣳⣬⣿⠀
+⢠⡞⢩⣿⠋⠙⠳⣽⢾⣯⠛⠙⢹⣯⠘⣷
+⠀⠈⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠋⠁⠀⠀
