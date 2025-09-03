@@ -1,21 +1,10 @@
 #!/bin/bash
 
-#virtual env setup
-sudo apt install python3.10-venv
-python3-dbg -m venv venv-dbg
-source venv-dbg/bin/activate
-pip install --upgrade pip
-pip install pyperformance
-pip install git+https://github.com/python/pyperformance.git
-git clone https://github.com/python/pyperformance.git
-pip install -e ./pyperformance
-
 #copy files
 git clone https://github.com/brendangregg/FlameGraph.git
 cp SWHW_codesign/trash.cpp ./trash.cpp
-cp -r SWHW_codesign/benchmarks/bm_unpack_sequence* pyperformance/benchmarks/
-cp SWHW_codesign/benchmarks/MANIFEST pyperformance/benchmarks/
-
+cp -r SWHW_codesign/benchmarks/bm_unpack_sequence* benchmarks/
+cp SWHW_codesign/benchmarks/MANIFEST benchmarks/
 
 # List of benchmarks to run
 BENCHES=(
