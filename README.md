@@ -1,10 +1,11 @@
-							
-			(¯`*•.¸,¤°´✿.｡.:* "" *.:｡.✿`°¤,¸.•*´¯)
+```text
+(¯`*•.¸,¤°´✿.｡.:* "" *.:｡.✿`°¤,¸.•*´¯)
   _        __         _                                   
  \ \      / /  ___  | |   ___    ___    _ __ ___     ___ 
   \ \ /\ / /  / _ \ | |  / __|  / _ \  | '_ ` _ \   / _ \
    \ V  V /  |  __/ | | | (__  | (_) | | | | | | | |  __/
     \_/\_/    \___| |_|  \___|  \___/  |_| |_| |_|  \___|
+```
 
 This is Shachar and Sahar's project at the course SW-HW Codesign. 
 For our project we chose to dive into the benchmarks of unpack_sequence and json_dumps.
@@ -25,10 +26,10 @@ How to run our code?
 - use the course's guide "How to Connect to Your QEMU on the Server.pdf" and enter your QEMU environment (first page steps 1-4)
 - git clone https://github.com/ShacharDeyi/SWHW_codesign
 - cd .. 
-- cp SWHW_codesign/script_unpack_sequence.sh .
+- cp SWHW_codesign/script_unpack_sequence.sh .'
 - chmod 777 script_unpack_sequence.sh
 - ./script_unpack_sequence.sh
-- cp SWHW_codesign/script_json_dumps.sh .
+- cp SWHW_codesign/script_json_dumps.sh .'
 - chmod 777 script_json_dumps.sh
 - ./script_json_dumps.sh
 
@@ -45,9 +46,11 @@ Shachar Deyi 208695379
 Sahar Liz Ohana 209312966
 
 Thanks For Reading!
+```text
 	⣀⡤⢤⣄⠀⣠⡤⣤⡀⠀⠀⠀
 ⠀⠀⢀⣴⢫⠞⠛⠾⠺⠟⠛⢦⢻⣆⠀⠀
 ⠀⠀⣼⢇⣻⡀⠀⠀⠀⠀⠀⠀⢸⡇⢿⣆⠀
 ⠀⢸⣯⢦⣽⣷⣄⡀⠀⢀⣴⣿⣳⣬⣿⠀
 ⢠⡞⢩⣿⠋⠙⠳⣽⢾⣯⠛⠙⢹⣯⠘⣷
 ⠀⠈⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠋⠁⠀⠀
+```

@@ -52,7 +52,9 @@
 	
 18. can you compare the implementation of dumps in ujson, json and orjson. show me the resources as well.
 
-19. can you make me ascii art of your concept of ai?
+19. can you make sure the readme looks good in github? the ascii art doesnt get corrupted
+
+20. can you make me ascii art of your concept of ai?
 	answer:
 	Here’s a try — a little ASCII art that represents my concept of AI: a "mind" made of circuits, 
 	branching out like neurons but still structured and digital.
