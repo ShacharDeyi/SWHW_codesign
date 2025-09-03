@@ -1,5 +1,5 @@
 ```text
-(¯`*•.¸,¤°´✿.｡.:* "" *.:｡.✿`°¤,¸.•*´¯)
+           (¯`*•.¸,¤°´✿.｡.:* "" *.:｡.✿`°¤,¸.•*´¯)
   _        __         _                                   
  \ \      / /  ___  | |   ___    ___    _ __ ___     ___ 
   \ \ /\ / /  / _ \ | |  / __|  / _ \  | '_ ` _ \   / _ \
@@ -23,15 +23,30 @@ This repository contains:
     * this is the info we provided in report_unpack_sequence.txt and report_json_dumps.txt
 
 How to run our code?
-- use the course's guide "How to Connect to Your QEMU on the Server.pdf" and enter your QEMU environment (first page steps 1-4)
-- git clone https://github.com/ShacharDeyi/SWHW_codesign
-- cd .. 
-- cp SWHW_codesign/script_unpack_sequence.sh .'
-- chmod 777 script_unpack_sequence.sh
-- ./script_unpack_sequence.sh
-- cp SWHW_codesign/script_json_dumps.sh .'
-- chmod 777 script_json_dumps.sh
-- ./script_json_dumps.sh
+- connect to QEMU
+- create a python3-dbg virtual environment:
+    sudo apt update
+    sudo apt install python3.10-venv
+    python3-dbg -m venv venv-dbg
+    source venv-dbg/bin/activate
+    pip install --upgrade pip
+    pip install pyperformance
+    pip install git+https://github.com/python/pyperformance.git
+    git clone https://github.com/python/pyperformance.git
+    cd pyperformance
+    pip install -e .
+*note: pyperformance will be our work path, all outputs will be created in pyperformance directory.
+
+- clone our repository:
+    git clone https://github.com/ShacharDeyi/SWHW_codesign
+- run the unpack_sequence analysis 
+    cp SWHW_codesign/script_unpack_sequence.sh .
+    chmod 777 script_unpack_sequence.sh
+    ./script_unpack_sequence.sh
+- run the json_dumps analysis   
+    cp SWHW_codesign/script_json_dumps.sh .
+    chmod 777 script_json_dumps.sh
+    ./script_json_dumps.sh
 
 What does each script do?
 - builds a python environment 

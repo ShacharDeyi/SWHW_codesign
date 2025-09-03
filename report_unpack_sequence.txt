@@ -58,29 +58,28 @@ Specific setup for bm_unpack_sequence_opt3_cython:
 		- compile unpacking.pyx:
 			python3-dbg setup.py build_ext --inplace
 				
-3. After creating all wanted benchmarks 
-	a. Make sure you have the following programs: trash.cpp, script_unpack_sequence.sh
-	b. Run ./script_unpack_sequence.sh
-		#notice: will run all unpack_sequence benchmarks we created.
-	c. Folders with benchmarks' names will be created.
-
 ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ script_unpack_sequence.sh ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
 
 What it does?
-1. Creates a python3-dbg environment
-2. Clones using git:
+1. Clones using git:
 	- Flamegraphs https://github.com/brendangregg/FlameGraph.git
-3. Copies relevant files from our repository to the relevant paths in pyperformance
-4. Modify max_sample_rate to match the needs
-5. Compiles trash.cpp - this program is meant to clean cache between runs in order to eliminate usage of previous information.
-6. Download cython library
-7. Runs for each benchmark (original and custom made) the following commands and saves output files in a specific folder.
+2. Copies relevant files from our repository to the relevant paths in pyperformance
+3. Modifies max_sample_rate to match the needs
+4. Compiles trash.cpp - this program is meant to clean cache between runs in order to eliminate usage of previous information.
+5. Download cython library
+6. Runs for each benchmark (original and custom made) the following commands and saves output files in a specific folder.
 	- perf stat -r 10 -e task-clock,context-switches,page-faults,cache-references,cache-misses,cycles,instructions python3-dbg -m pyperformance run --bench $NAME
 		*note: this will give the average performance over 10 runs.
 	- perf record -F 999 -g -- python3-dbg -m pyperformance run --bench $NAME
 	- perf report --stdio > report.txt
 	- perf script | ../FlameGraph/stackcollapse-perf.pl > out.folded 
 	- creates flamegraphs
+
+Outputs for each benchmark:
+	results_NAME folder that contains:
+		- report_NAME.txt
+		- stats_NAME.txt
+		- flamegraph_NAME.svg
 
 ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏ Overview ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏
 
