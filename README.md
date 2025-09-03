@@ -25,6 +25,7 @@ This repository contains:
 How to run our code?
 - connect to QEMU
 - create a python3-dbg virtual environment:
+    ```bash
     sudo apt update
     sudo apt install python3.10-venv
     python3-dbg -m venv venv-dbg
@@ -35,6 +36,7 @@ How to run our code?
     git clone https://github.com/python/pyperformance.git
     cd pyperformance
     pip install -e .
+    ```
 *note: pyperformance will be our work path, all outputs will be created in pyperformance directory.
 
 - clone our repository:
