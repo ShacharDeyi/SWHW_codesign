@@ -129,16 +129,18 @@ Description:
 		the average time and standard deviation provided by the pyperf library itself. 
 
 	- Data structures: tuples, lists
-		Tuple — immutable fixed-size sequence used in bench_tuple_unpacking.
-				Tuple items are ordered, unchangeable, and allow duplicate values.
-				They are indexed, the first item has index [0], the second item has index [1] etc.
-				A tuple's layout in memory is a contiguous block of memory that holds references (pointers).
+		Tuple - 
+			immutable fixed-size sequence used in bench_tuple_unpacking.
+			Tuple items are ordered, unchangeable, and allow duplicate values.
+			They are indexed, the first item has index [0], the second item has index [1] etc.
+			A tuple's layout in memory is a contiguous block of memory that holds references (pointers).
 				
-		List — mutable sequence used in bench_list_unpacking.
-		       List items are ordered, changeable, and allow duplicate values.
-		       They are indexed, the first item has index [0], the second item has index [1] etc.
-			   Python lists are dynamic allocated arrays and they store references (pointers) to objects, not the objects themselves, 
-			   at contiguous memory locations. This allows lists to contain elements of different types.
+		List - 
+			mutable sequence used in bench_list_unpacking.
+		       	List items are ordered, changeable, and allow duplicate values.
+		       	They are indexed, the first item has index [0], the second item has index [1] etc.
+			Python lists are dynamic allocated arrays and they store references (pointers) to objects, not the objects themselves, 
+			at contiguous memory locations. This allows lists to contain elements of different types.
 
 Initial Analysis:
 	- stats:
@@ -159,7 +161,7 @@ Initial Analysis:
 					   20.5152 +- 0.0124 seconds time elapsed  ( +-  0.06% )
 	
 	- Flamegraph can be found in results_unpack_sequence/flamegraph_unpack_sequence.svg
-		Note: by default, perf shows only c-level frames. That means Python functions will not show in their names.
+		*Note: by default, perf shows only c-level frames. That means Python functions will not show in their names.
 
 	- Bottlenecks:
 	  Most of the time in this benchmark is spent in the actual logic. 
@@ -346,7 +348,7 @@ Description:
 			and flexibility. Since Cython modules compile into standard Python extensions, they can be imported just like any other library.
 			
 			This means that instead of relying on Python’s interpreter, the code runs much closer to the hardware using the c-compiled code that we know and love, 
-			with far less overhead. The result is often a big speed-up, especially in sections of code that are heavy on loops, numerical operations, or frequent 
+			with far less overhead. The result is often a significant speed-up, especially in sections of code that are heavy on loops, numerical operations, or frequent 
 			function calls. Overall, Cython enables developers to write performance-critical parts of a program in Cython that will integrate into regular Python. 
 			This combines the performance of c code and the convenience of Python. 
 			 
@@ -369,7 +371,7 @@ Analysis:
 				   22.0020 +- 0.0160 seconds time elapsed  ( +-  0.07% )
 				   
 	- Flamegraph can be found in results_unpack_sequence_opt3_cython/flamegraph_unpack_sequence_opt3_cython.svg
-		*note: in this case, since cython is compiled and runs on the hardware directly, we were able to see the exact running time and duration of 
+		*Note: in this case, since cython is compiled and runs on the hardware directly, we were able to see the exact running time and duration of 
 			   the unpacking function in our program. 
 			   
 	- Comparison:
@@ -387,7 +389,7 @@ tuples behave like arrays of integers. The code simply takes each element and as
 	* Input:
 		A pointer to the Python object (tuple or list) and its size.
 		In our case - list or tuple with 10 elements.
-			*note: we will check what is the type of the object we get and handle it accordingly.
+			*Note: we will check what is the type of the object we get and handle it accordingly.
 	* Output:
 		An array of object references that can be mapped directly to local variables.
 		In our case - an array with 10 elements.
@@ -472,7 +474,7 @@ Overall, the majority of the optimizations we applied showed minimal impact on p
 From our understanding, this is due to the fact that most of the run time is spent doing the actual unpacking logic and not 
 other required operations (which we can refer to as overhead), hence why micro-optimizations don't seem to have a larger impact.
 However, the Cython implementation yielded a notable improvement, reducing the average runtime by approximately 42.5%.
-- Since pyperf calibrates the number of loop iterations, our cython custom benchmark ended up executing twice as many loops than the other 
+- Since pyperf calibrates the number of loop iterations, our cython custom benchmark ended up executing twice as many loops as the other 
 	   unpack_sequence benchmarks. This difference in calibration influences the collected statistics (other than the pyperf's built in mean time and 
 	   std error)and may skew comparisons with other benchmarks. 
 	   In this case, the original benchmark ran 2048 loops while unpack_sequence_opt3_cython ran 4096.

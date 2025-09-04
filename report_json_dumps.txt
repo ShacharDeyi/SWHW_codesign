@@ -182,13 +182,15 @@ Description:
 			A lot of the functionality is implemented in Python and only some inner loops are in c. 
 		
 	- Data structures:
-		Tuple — immutable fixed-size sequence used in bench_tuple_unpacking.
-				Tuple items are ordered, unchangeable, and allow duplicate values.
-				They are indexed, the first item has index [0], the second item has index [1] et
+		Tuple - 
+			immutable fixed-size sequence used in bench_tuple_unpacking.
+			Tuple items are ordered, unchangeable, and allow duplicate values.
+			They are indexed, the first item has index [0], the second item has index [1] et
 				
-		List — mutable sequence used in bench_list_unpacking.
-		       List items are ordered, changeable, and allow duplicate values.
-		       They are indexed, the first item has index [0], the second item has index [1] etc.
+		List - 
+			mutable sequence used in bench_list_unpacking.
+		       	List items are ordered, changeable, and allow duplicate values.
+		       	They are indexed, the first item has index [0], the second item has index [1] etc.
 		
 		Dictionary - 
 			Dictionary items are ordered, changeable, and do not allow duplicates.
@@ -218,7 +220,7 @@ Initial Analysis
 					  19.11638 +- 0.00935 seconds time elapsed  ( +-  0.05% )
 					  
 	- Flamegraph can be found in results_json_dumps/flamegraph_json_dumps.svg
-		Note: by default, perf shows only c-level frames. That means Python functions will not show in their names.
+		*Note: by default, perf shows only c-level frames. That means Python functions will not show in their names.
 		
 	- Bottlenecks
 		Most of the time in this benchmark is spent in the actual logic of the serialization. 
