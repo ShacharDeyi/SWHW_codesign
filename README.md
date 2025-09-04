@@ -65,8 +65,8 @@ What does each script do?
     - statistics report
 
 
-Shachar Deyi 208695379
-Sahar Liz Ohana 209312966
+Shachar Deyi
+Sahar Liz Ohana
 
 Thanks For Reading!
 ```text
