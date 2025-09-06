@@ -387,7 +387,7 @@ tuples behave like arrays of integers. The code simply takes each element and as
 
 - Inputs and outputs:
 	* Input:
-		A pointer to the Python object (tuple or list) and its size.
+		A pointer to the Python object (tuple or list) and the number of elements to unpack.
 		In our case - list or tuple with 10 elements.
 			*Note: we will check what is the type of the object we get and handle it accordingly.
 	* Output:
